@@ -6,13 +6,13 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 00:45:57 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/16 09:29:39 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/16 10:41:43 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>  // Añadir esta librería para usar write
 
 #define SIZE 4
 
@@ -37,20 +37,29 @@ int validate_input(int argc, char **argv, int *input);
 void initialize_board(void);
 void free_board(void);
 
+// Funciones para verificar unicidad en filas y columnas
+int is_valid(int row, int col, int height);
+
+// Función auxiliar para escribir una cadena
+void ft_putstr(char *str);
+
+// Función auxiliar para escribir un número
+void ft_putnbr(int nbr);
+
 int main(int argc, char **argv)
 {
     int input[16];
 
     if (!validate_input(argc, argv, input))
     {
-        printf("Error\n");
+        ft_putstr("Error\n");
         return (1);
     }
     initialize_board();
     if (solve(0, 0, input))
         print_board();
     else
-        printf("Error\n");
+        ft_putstr("Error\n");
     free_board();
     return (0);
 }
@@ -164,10 +173,13 @@ int solve(int row, int col, int *input)
     height = 1;
     while (height <= SIZE)
     {
-        board[row][col] = height;
-        if (solve(next_row, next_col, input))
-            return (1);
-        board[row][col] = 0;
+        if (is_valid(row, col, height))
+        {
+            board[row][col] = height;
+            if (solve(next_row, next_col, input))
+                return (1);
+            board[row][col] = 0;
+        }
         height++;
     }
     return (0);
@@ -184,12 +196,12 @@ void print_board(void)
         j = 0;
         while (j < SIZE)
         {
-            printf("%d", board[i][j]);
+            ft_putnbr(board[i][j]);
             if (j < SIZE - 1)
-                printf(" ");
+                write(1, " ", 1);
             j++;
         }
-        printf("\n");
+        write(1, "\n", 1);
         i++;
     }
 }
@@ -247,4 +259,43 @@ void free_board(void)
         i++;
     }
     free(board);
+}
+
+int is_valid(int row, int col, int height)
+{
+    int i;
+
+    // Check the row
+    i = 0;
+    while (i < SIZE)
+    {
+        if (board[row][i] == height)
+            return (0);
+        i++;
+    }
+    // Check the column
+    i = 0;
+    while (i < SIZE)
+    {
+        if (board[i][col] == height)
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+void ft_putstr(char *str)
+{
+    while (*str)
+        write(1, str++, 1);
+}
+
+void ft_putnbr(int nbr)
+{
+    char c;
+
+    if (nbr >= 10)
+        ft_putnbr(nbr / 10);
+    c = (nbr % 10) + '0';
+    write(1, &c, 1);
 }
