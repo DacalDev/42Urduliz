@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 14:10:36 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 09:27:21 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/17 18:58:43 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/17 19:05:23 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
@@ -24,12 +24,12 @@ void	ft_putstr(char *str)
 		i++;
 	}
 }
-
+/*
 int	main(void)
 {
-	char	str[] = "Hello, World!";
+	char	str[] = "42Urduliz";
 
 	ft_putstr(str);
 	return (0);
 }
-
+*/

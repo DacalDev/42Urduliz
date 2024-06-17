@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 14:44:14 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 09:27:21 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/17 19:15:41 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/17 19:18:07 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//#include <stdio.h>
 
 void	ft_sort_int_tab(int *tab, int size)
 {
@@ -33,9 +35,7 @@ void	ft_sort_int_tab(int *tab, int size)
 		i++;
 	}
 }
-
-#include <stdio.h>
-
+/*
 int	main(void)
 {
 	int    arr[] = {-1, 0, 7, 33, -5};
@@ -50,4 +50,4 @@ int	main(void)
 		i++;
 	}
 }
-
+*/

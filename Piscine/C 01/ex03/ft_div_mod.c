@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 15:56:18 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 09:27:21 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/17 18:08:53 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/17 18:53:33 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//#include <stdio.h>
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
 	*div = a / b;
 	*mod = a % b;
 }
-
-#include <stdio.h>
-
+/*
 int	main(void)
 {
 	int	x = 42;
@@ -31,4 +31,4 @@ int	main(void)
 
 	return (0);
 }
-
+*/

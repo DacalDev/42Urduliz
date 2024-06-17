@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_rev_int_tab..c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 14:36:04 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 09:27:21 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/17 19:09:01 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/17 19:13:40 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 void	ft_rev_int_tab(int *tab, int size)
 {
@@ -28,8 +30,6 @@ void	ft_rev_int_tab(int *tab, int size)
 	}
 }
 
-#include <stdio.h>
-
 int	main(void)
 {
 	int	arr[] = {2, 3, 5, 1, 4};
@@ -44,4 +44,3 @@ int	main(void)
 		i++;
 	}
 }
-

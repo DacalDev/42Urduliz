@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 14:21:54 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 09:27:21 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/17 19:06:07 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/17 19:08:21 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -22,12 +24,10 @@ int	ft_strlen(char *str)
 	}
 	return (i);
 }
-
-#include <stdio.h>
-
+/*
 int	main(void)
 {
-	char	str2[] = "¡hola mundo!";
+	char	str2[] = "42Urduliz";
 	int	len;
 
 	len = ft_strlen(str2);
@@ -36,4 +36,4 @@ int	main(void)
 
 	return (0);
 }
-
+*/
