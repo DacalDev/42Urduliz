@@ -6,11 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 19:09:01 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/17 19:13:40 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:46:49 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 void	ft_rev_int_tab(int *tab, int size)
 {
@@ -29,7 +29,7 @@ void	ft_rev_int_tab(int *tab, int size)
 		end--;
 	}
 }
-
+/*
 int	main(void)
 {
 	int	arr[] = {2, 3, 5, 1, 4};
@@ -44,3 +44,4 @@ int	main(void)
 		i++;
 	}
 }
+*/

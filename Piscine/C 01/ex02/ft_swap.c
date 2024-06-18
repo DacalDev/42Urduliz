@@ -6,11 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 08:26:47 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/13 10:29:23 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:45:43 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 void	ft_swap(int *a, int *b)
 {

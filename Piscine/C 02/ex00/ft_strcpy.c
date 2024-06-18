@@ -3,39 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 18:36:51 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 00:46:33 by danperez         ###   ########.fr       */
+/*   Created: 2024/06/18 19:44:50 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/18 21:49:53 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
+//#include <unistd.h>
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+char    *ft_strcpy(char *dest, char *src)
+{
+    int i;
+
+    i = 0;
+    while (src[i] != '\0')
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    dest[i] = '\0';
+    return(dest);
 }
 /*
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int	main(void)
+int main()
 {
-	char	str1[] = "Hello, World!";
-	char	*str2 = malloc(strlen(str1) + 1);
+    char src[] = "Hola, mundo!";
+    char dest[20];  // Asegúrate de que el tamaño sea suficiente para la cadena de origen.
+    int len = 0;
 
-	ft_strcpy(str2, str1);
-	printf("src: %s\ndest: %s\n", str1, str2);
-	free(str2);
-	return (0);
+    ft_strcpy(dest, src);
+
+    // Calcula la longitud de la cadena copiada para usar en write
+    while (dest[len] != '\0')
+    {
+        len++;
+    }
+
+    // Escribe la cadena copiada usando write
+    write(1, "Cadena copiada: ", 16);
+    write(1, dest, len);
+    write(1, "\n", 1);
+
+    return (0);
 }
 */
