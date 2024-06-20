@@ -5,42 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 00:51:24 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/17 20:07:11 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/19 17:57:59 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/20 15:27:26 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+//#include <stdio.h>
+
+char    *ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int	i;
+    unsigned int    i;
 
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = 'z';
-		i++;
-	}
-	return (dest);
+    i = 0;
+    while (i < n && src[i] != '\0')
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    while (i < n)
+    {
+        dest[i] = '\0';
+        i++;
+    }
+    return (dest);
 }
-
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
+/*
+int main()
 {
-	char	str1[] = "Hola mundo!";
-	//char	str2[20];
-	unsigned int	n = 3;
-	char	*str2 = malloc(n + 1);
-	
-	ft_strncpy(str2, str1, n);
-	//str2[n] = '\0';
-	printf("src: %s\ndest: %s\n", str1, str2);
-	free(str2);
-	return (0);
+    char dest[20];
+
+    // Caso 1: n menor que la longitud de src
+    char src1[] = "Hola Mundo";
+    ft_strncpy(dest, src1, 5);
+    printf("Caso 1: %s\n", dest); // Esperado: "Hola "
+
+    // Caso 2: n igual a la longitud de src
+    char src2[] = "Prueba";
+    ft_strncpy(dest, src2, 6);
+    printf("Caso 2: %s\n", dest); // Esperado: "Prueba"
+
+    // Caso 3: n mayor que la longitud de src
+    char src3[] = "Ejemplo";
+    ft_strncpy(dest, src3, 10);
+    printf("Caso 3: %s\n", dest); // Esperado: "Ejemplo\0\0\0"
+
+    // Caso 4: src es una cadena vacía
+    char src4[] = "";
+    ft_strncpy(dest, src4, 5);
+    printf("Caso 4: %s\n", dest); // Esperado: "\0\0\0\0\0"
+
+    // Caso 5: n es cero
+    char src5[] = "Texto";
+    ft_strncpy(dest, src5, 0);
+    printf("Caso 5: %s\n", dest); // Esperado: "" (cadena vacía)
+
+    return 0;
 }
+*/

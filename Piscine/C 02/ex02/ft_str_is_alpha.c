@@ -1,63 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_isalpa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 01:53:36 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 10:22:17 by danperez         ###   ########.fr       */
+/*   Created: 2024/06/20 15:29:02 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/20 15:41:54 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+int ft_str_is_alpha(char *str)
 {
-	while (*str)
-	{
-		if ((*str < 'A' || *str > 'Z') && (*str < 'a' || *str > 'z'))
-		{
-			return (0);
-		}
-		str++;
-	}
-	return (1);
+    while (*str)
+    {
+        if ((*str < 'A' || *str > 'Z') && (*str < 'a' || *str > 'z'))
+        {        
+            return (0);
+        }
+        *str++;
+    }
+    return (1);
 }
 /*
 #include <stdio.h>
 
-int	main(void)
+int main()
 {
-//	char	str[] = "ola*+/-";
-	char	*test_strings[] = 
-	{
-        	"Hola mundo",
-		"abc",
-		"A-Z",
-		"az",
-		"!@#$%",
-		"Maní",
-		"hello",
-		"Héllo wórld",
-		"H3ll0 w0rld"
-	};
-	int	i;
-	int	result;
+    // Caso 1: Cadena vacía
+    char str1[] = "";
+    printf("Caso 1: %s - %d\n", str1, ft_str_is_alpha(str1)); // Esperado: 1
 
-	i = 0;
-	
-	while (i < 9)
-	{
-		result = ft_str_is_alpha(test_strings[i]);
-		if (result == 1)
-		{
-			printf("Test %d is alpha: %s\n", i + 1, test_strings[i]);
-		}
-		else
-		{
-			printf("Test %d is not alpha: %s\n", i + 1, test_strings[i]);
-		}
-		i++;
-	}
-	return (0);
+    // Caso 2: Cadena con solo letras
+    char str2[] = "HolaMundo";
+    printf("Caso 2: %s - %d\n", str2, ft_str_is_alpha(str2)); // Esperado: 1
+
+    // Caso 3: Cadena con letras y números
+    char str3[] = "Hola123";
+    printf("Caso 3: %s - %d\n", str3, ft_str_is_alpha(str3)); // Esperado: 0
+
+    // Caso 4: Cadena con letras y caracteres especiales
+    char str4[] = "Hello!";
+    printf("Caso 4: %s - %d\n", str4, ft_str_is_alpha(str4)); // Esperado: 0
+
+    // Caso 5: Cadena con solo mayúsculas
+    char str5[] = "HELLO";
+    printf("Caso 5: %s - %d\n", str5, ft_str_is_alpha(str5)); // Esperado: 1
+
+    // Caso 6: Cadena con solo minúsculas
+    char str6[] = "world";
+    printf("Caso 6: %s - %d\n", str6, ft_str_is_alpha(str6)); // Esperado: 1
+
+    // Caso 7: Cadena con espacio
+    char str7[] = "Hello World";
+    printf("Caso 7: %s - %d\n", str7, ft_str_is_alpha(str7)); // Esperado: 0
+
+    return 0;
 }
 */
