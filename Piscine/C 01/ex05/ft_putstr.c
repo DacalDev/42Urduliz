@@ -6,11 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:58:43 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/18 19:46:22 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:31:05 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
@@ -20,7 +20,6 @@ void	ft_putstr(char *str)
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
-		write(1, "\n", 1);
 		i++;
 	}
 }
