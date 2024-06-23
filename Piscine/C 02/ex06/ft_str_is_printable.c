@@ -5,54 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 12:47:45 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/17 20:24:39 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/23 19:03:22 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/23 19:10:13 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int ft_str_is_printable(char *str)
 {
-	while (*str)
-	{
-		if (*str < 32 || *str > 126)
-		{
-			return (0);
-		}
-		str++;
-	}
-	return (1);
+    while (*str)
+    {
+        if (*str < 32 || *str > 126)
+        {
+            return (0);
+        }
+        str++;
+    }
+    return (1);
 }
 /*
 #include <stdio.h>
 
-int	main(void)
-{
-	char	*strs[] =
-	{
-		"",
-		"\0a\ndfs",
-		"asdf\0",
-		"asdf123 ",
-		"as23\n ",
-		"a . =/*¡",
-		"asfdª!·$%&/()"
-	};
-	int	i;
-	int	result;
+int ft_str_is_printable(char *str);
 
-	i = 0;
-	while (i < 7)
-	{
-		result = ft_str_is_printable(strs[i]);
-		if (result == 1)
-		{
-			printf("%s is printable\n", strs[i]);
-		}
-		else
-		{
-			printf("%s is not printable\n", strs[i]);
-		}
-		i++;
-	}
+int main() {
+    char test1[] = "Hello, world!";
+    char test2[] = "Special\tcharacters\n";
+    char test3[] = "1234567890";
+    char test4[] = "";
+
+    printf("Test 1 (\"Hello, world!\"): %d\n", ft_str_is_printable(test1));
+    printf("Test 2 (\"Special\\tcharacters\\n\"): %d\n", ft_str_is_printable(test2));
+    printf("Test 3 (\"1234567890\"): %d\n", ft_str_is_printable(test3));
+    printf("Test 4 (\"\"): %d\n", ft_str_is_printable(test4));
+
+    return 0;
 }
 */
