@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 17:48:23 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 19:26:39 by danperez         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 char	*ft_strcapitalize(char *str)
 {
@@ -39,14 +28,14 @@ char	*ft_strcapitalize(char *str)
 /*
 #include <stdio.h>
 
-int	main(void)
-{
-	char	str[] = "salut, comment tu vas
-       	? 42mots quarante-deux; cinquante+et+un";
-	
-	printf("original: %s\n", str);
-	ft_strcapitalize(str);
-	printf("capitalize: %s\n", str);
-	return (0);
+char *ft_strcapitalize(char *str);
+
+int main(void) {
+    char str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+
+    printf("Original: %s\n", str);
+    printf("Capitalized: %s\n", ft_strcapitalize(str));
+
+    return 0;
 }
 */

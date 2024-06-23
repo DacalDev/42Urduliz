@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 13:37:40 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 14:57:56 by danperez         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 char	*ft_strupcase(char *str)
 {
@@ -28,20 +17,30 @@ char	*ft_strupcase(char *str)
 /*
 #include <stdio.h>
 
-int	main(void)
-{
-	char	str1[] = "asdf89q ";
-	char	str2[] = "ASDFGHJKL";
-	char	str3[] = "aBcDeFgHiJkLmNoP";
-	
-	printf("Original: %s\n", str1);
-	printf("Strupcased: %s\n", ft_strupcase(str1));
+char *ft_strupcase(char *str);
 
-	printf("Original: %s\n", str2);
-	printf("Strupcased: %s\n", ft_strupcase(str2));
+int main(void) {
+    char str1[] = "hello, World!";
+    char str2[] = "42 is the answer!";
+    char str3[] = "MixedCASE123";
+    char str4[] = "already UPPERCASE";
+    char str5[] = "";
 
-	printf("Original: %s\n", str3);
-	printf("Strupcased: %s\n", ft_strupcase(str3));
-	return (0);
+    printf("Original: %s\n", str1);
+    printf("Uppercase: %s\n\n", ft_strupcase(str1));
+
+    printf("Original: %s\n", str2);
+    printf("Uppercase: %s\n\n", ft_strupcase(str2));
+
+    printf("Original: %s\n", str3);
+    printf("Uppercase: %s\n\n", ft_strupcase(str3));
+
+    printf("Original: %s\n", str4);
+    printf("Uppercase: %s\n\n", ft_strupcase(str4));
+
+    printf("Original: %s\n", str5);
+    printf("Uppercase: %s\n", ft_strupcase(str5));
+
+    return 0;
 }
 */

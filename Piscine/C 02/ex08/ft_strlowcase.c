@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 15:05:24 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/16 15:08:27 by danperez         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
@@ -28,20 +17,30 @@ char	*ft_strlowcase(char *str)
 /*
 #include <stdio.h>
 
-int	main(void)
-{
-	char	str1[] = "asdf89q ";
-	char	str2[] = "ASDFGHJKL";
-	char	str3[] = "aBcDeFgHiJkLmNoP";
-	
-	printf("Original: %s\n", str1);
-	printf("Strupcased: %s\n", ft_strlowcase(str1));
+char *ft_strlowcase(char *str);
 
-	printf("Original: %s\n", str2);
-	printf("Strupcased: %s\n", ft_strlowcase(str2));
+int main(void) {
+    char str1[] = "HELLO, World!";
+    char str2[] = "42 IS THE ANSWER!";
+    char str3[] = "MixedCASE123";
+    char str4[] = "already lowercase";
+    char str5[] = "";
 
-	printf("Original: %s\n", str3);
-	printf("Strupcased: %s\n", ft_strlowcase(str3));
-	return (0);
+    printf("Original: %s\n", str1);
+    printf("Lowercase: %s\n\n", ft_strlowcase(str1));
+
+    printf("Original: %s\n", str2);
+    printf("Lowercase: %s\n\n", ft_strlowcase(str2));
+
+    printf("Original: %s\n", str3);
+    printf("Lowercase: %s\n\n", ft_strlowcase(str3));
+
+    printf("Original: %s\n", str4);
+    printf("Lowercase: %s\n\n", ft_strlowcase(str4));
+
+    printf("Original: %s\n", str5);
+    printf("Lowercase: %s\n", ft_strlowcase(str5));
+
+    return 0;
 }
 */

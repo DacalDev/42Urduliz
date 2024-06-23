@@ -1,42 +1,41 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/17 16:57:28 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/17 17:42:09 by danperez         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	len;
 
-	i = 0;
 	len = 0;
 	while (src[len] != '\0')
 		len++;
-	while (i < size - 1 && i < len)
+
+	if (size == 0)
+		return (len);
+
+	i = 0;
+	while (i < size - 1 && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
+
 	return (len);
 }
 /*
 #include <stdio.h>
 
-int	main(void)
+int main(void) 
 {
-	char	src[] = "Hello, World!";
-	char	dest[20];
+	char src[] = "Hello, World!";
+    char dest[20];
+    unsigned int size = 8;
+    unsigned int len;
 
- 	ft_strlcpy(dest, src, 2);
- 	printf("Dest string: %s\n", dest);
-	return (0);
+    len = ft_strlcpy(dest, src, size);
+    printf("Source: %s\n", src);
+    printf("Destination: %s\n", dest);
+    printf("Length of source: %u\n", len);
+
+    return 0;
 }
 */
