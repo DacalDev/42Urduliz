@@ -12,7 +12,7 @@
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
-SRCS = rush-02.c dictionary.c ft_library.c
+SRCS = rush-02.c dictionary.c ft_library.c ft_library_2.c ft_library_3.c ft_library_4.c
 OBJS = $(SRCS:.c=.o)
 NAME = rush-02
 

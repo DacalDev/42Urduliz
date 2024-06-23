@@ -11,47 +11,53 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+
+#include <limits.h>
+#include <errno.h>
+
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include "dictionary.h"
 
-void	int_char(unsigned long long value, char *dest)
+char	*convert_number_to_text(Dictionary *dict, const char *number)
 {
-	char	temp[20];
-	char	*point;
+	unsigned long long	num;
+	char				*text;
+	char				*final_result;
+	char				*result;
 
-	point = temp + 19;
-	*point = '\0';
-	while (value > 0)
+	num = ft_strtoull(number, NULL, 10);
+	result = malloc(2048);
+	if (!result)
+		return (NULL);
+	result[0] = '\0';
+	if (num == 0)
 	{
-		*--point = (value % 10) + '0';
-		value /= 10;
+		text = find_in_dictionary(dict, 0);
+		if (text)
+		{
+			return (ft_strdup(text));
+		}
 	}
-	ft_strcpy(dest, point);
-}
-
-int	is_valid_number(const char *str)
-{
-	if (*str == '\0')
-		return (0);
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-		str++;
-	}
-	return (1);
+	num = ft_big_num(dict, result, num);
+	ft_num(dict, result, num);
+	final_result = ft_strdup(result);
+	free(result);
+	return (final_result);
 }
 
 Dictionary	*load_dictionary(const char *filename)
 {
-	FILE	*file;
 	Dictionary	*dict;
-	char	line[256];
-	char	*colon;
-	int	number;
-	char	*text;
-	char	*end;
+	FILE		*file;
+	char		line[256];
+	char		*colon;
+	char		*text;
+	char		*end;
+	int			number;
+	int			s;
 
 	file = fopen(filename, "r");
 	if (!file)
@@ -66,9 +72,9 @@ Dictionary	*load_dictionary(const char *filename)
 	dict->size = 0;
 	while (fgets(line, sizeof(line), file))
 	{
-		colon = strchr(line, ':');
+		colon = ft_strchr(line, ':');
 		if (!colon)
-			continue;
+			continue ;
 		*colon = '\0';
 		number = ft_atoi(line);
 		text = colon + 1;
@@ -78,133 +84,78 @@ Dictionary	*load_dictionary(const char *filename)
 		while (end > text && (*end == ' ' || *end == '\n'))
 			end--;
 		*(end + 1) = '\0';
-        dict->entries = realloc(dict->entries, (dict->size + 1) * sizeof(DictionaryEntry));
-	if (!dict->entries)
-	{
-		free_dictionary(dict);
-		fclose(file);
-		return NULL;
-	}
-	dict->entries[dict->size].number = number;
-	dict->entries[dict->size].text = ft_strdup(text);
-	if (!dict->entries[dict->size].text)
-	{
-		free_dictionary(dict);
-		fclose(file);
-		return (NULL);
-	}
-        dict->size++;
+		s = sizeof(DictionaryEntry);
+		dict->entries = realloc(dict->entries, (dict->size + 1) * s);
+		if (!dict->entries)
+		{
+			free_dictionary(dict);
+			fclose(file);
+			return (NULL);
+		}
+		dict->entries[dict->size].number = number;
+		dict->entries[dict->size].text = ft_strdup(text);
+		if (!dict->entries[dict->size].text)
+		{
+			free_dictionary(dict);
+			fclose(file);
+			return (NULL);
+		}
+		dict->size++;
 	}
 	fclose(file);
-	return dict;
+	return (dict);
 }
 
-void free_dictionary(Dictionary *dict)
+unsigned long long	ft_strtoull(const char *nptr, char **endptr, int base)
 {
-    if (dict)
-    {
-        for (int i = 0; i < dict->size; i++)
-        {
-            free(dict->entries[i].text);
-        }
-        free(dict->entries);
-        free(dict);
-    }
+	unsigned long long	result;
+	int	sign;
+	int	digit;
+
+	result = 0;
+	sign = 1;
+	if (*nptr == '-')
+	{
+		sign = -1;
+		nptr++;
+	}
+	else if (*nptr == '+')
+	{
+		nptr++;
+	}
+	if (base == 0)
+	{
+		if (*nptr == '0')
+		{
+			base = 8;
+			nptr++;
+		}
+		else if (*nptr == '0' && *(nptr + 1) == 'x')
+		{
+			base = 16;
+			nptr += 2;
+		}
+		else
+			base = 10;
+	}
+	while ((digit = ft_digit_value(*nptr, base)) != -1)
+	{
+		result = result * base + digit;
+		nptr++;
+	}
+	if (endptr != NULL)
+		*endptr = (char *)nptr;
+	return (sign * result);
 }
 
-char *find_in_dictionary(Dictionary *dict, int number)
+int	ft_digit_value(char c, int base)
 {
-    for (int i = 0; i < dict->size; i++)
-    {
-        if (dict->entries[i].number == number)
-            return dict->entries[i].text;
-    }
-    return NULL;
-}
-
-char *convert_number_to_text(Dictionary *dict, const char *number)
-{
-    unsigned long long num;
-    unsigned long long billions, millions, thousands;
-    char *text;
-    char *final_result;
-    char *result;
-
-    num = strtoull(number, NULL, 10);
-    if (num == 0)
-    {
-        text = find_in_dictionary(dict, 0);
-        if (text)
-        {
-            return ft_strdup(text);
-        }
-    }
-
-    result = malloc(2048);
-    if (!result)
-        return NULL;
-
-    result[0] = '\0';
-
-    if (num >= 1000000000)
-    {
-        billions = num / 1000000000;
-        ft_bill(dict, result, billions);
-        num %= 1000000000;
-    }
-
-    if (num >= 1000000)
-    {
-        millions = num / 1000000;
-        ft_mill(dict, result, millions);
-        num %= 1000000;
-    }
-
-    if (num >= 1000)
-    {
-        thousands = num / 1000;
-        ft_thou(dict, result, thousands);
-        num %= 1000;
-    }
-
-    if (num >= 100)
-    {
-        text = find_in_dictionary(dict, num / 100);
-        if (text)
-        {
-            ft_strcat(result, text);
-            ft_strcat(result, " hundred ");
-        }
-        num %= 100;
-    }
-
-    if (num > 0)
-    {
-        if (num <= 20 || num % 10 == 0)
-        {
-            text = find_in_dictionary(dict, num);
-            if (text)
-            {
-                ft_strcat(result, text);
-            }
-        }
-        else
-        {
-            text = find_in_dictionary(dict, num - num % 10);
-            if (text)
-            {
-                ft_strcat(result, text);
-                ft_strcat(result, " ");
-            }
-            text = find_in_dictionary(dict, num % 10);
-            if (text)
-            {
-                ft_strcat(result, text);
-            }
-        }
-    }
-
-    final_result = ft_strdup(result);
-    free(result);
-    return final_result;
+	if (c >= '0' && c <= '9')
+		return (c - '0');
+	else if (c >= 'A' && c <= 'F' && base == 16)
+		return (c - 'A' + 10);
+	else if (c >= 'a' && c <= 'f' && base == 16)
+		return (c - 'a' + 10);
+	else
+		return (-1);
 }

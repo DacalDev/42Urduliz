@@ -15,12 +15,12 @@
 #include <stdlib.h>
 #include "dictionary.h"
 
-void	error_message(const char *message)
+void	error_message(char *message)
 {
-	write(1, message, strlen(message));
+	write(1, message, ft_strlen(message));
 }
 
-void	write_message(const char *message)
+void	write_message(char *message)
 {
 	write(1, message, strlen(message));
 }
