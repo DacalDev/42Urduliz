@@ -6,7 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 07:34:51 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/24 07:34:52 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:18:25 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+    
+}
