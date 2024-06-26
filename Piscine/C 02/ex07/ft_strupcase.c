@@ -31,27 +31,27 @@ char	*ft_strupcase(char *str)
 char *ft_strupcase(char *str);
 
 int main(void) {
-    char str1[] = "hello, World!";
-    char str2[] = "42 is the answer!";
-    char str3[] = "MixedCASE123";
-    char str4[] = "already UPPERCASE";
-    char str5[] = "";
+	char str1[] = "hello, World!";
+	char str2[] = "42 is the answer!";
+	char str3[] = "MixedCASE123";
+	char str4[] = "already UPPERCASE";
+	char str5[] = "";
 
-    printf("Original: %s\n", str1);
-    printf("Uppercase: %s\n\n", ft_strupcase(str1));
+	printf("Original: %s\n", str1);
+	printf("Uppercase: %s\n\n", ft_strupcase(str1));
 
-    printf("Original: %s\n", str2);
-    printf("Uppercase: %s\n\n", ft_strupcase(str2));
+	printf("Original: %s\n", str2);
+	printf("Uppercase: %s\n\n", ft_strupcase(str2));
 
-    printf("Original: %s\n", str3);
-    printf("Uppercase: %s\n\n", ft_strupcase(str3));
+	printf("Original: %s\n", str3);
+	printf("Uppercase: %s\n\n", ft_strupcase(str3));
 
-    printf("Original: %s\n", str4);
-    printf("Uppercase: %s\n\n", ft_strupcase(str4));
+	printf("Original: %s\n", str4);
+	printf("Uppercase: %s\n\n", ft_strupcase(str4));
 
-    printf("Original: %s\n", str5);
-    printf("Uppercase: %s\n", ft_strupcase(str5));
+	printf("Original: %s\n", str5);
+	printf("Uppercase: %s\n", ft_strupcase(str5));
 
-    return 0;
+	return 0;
 }
 */

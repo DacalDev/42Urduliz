@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_str_is_printable(char *str)
+int	ft_str_is_printable(char *str)
 {
-    while (*str)
-    {
-        if (*str < 32 || *str > 126)
-        {
-            return (0);
-        }
-        str++;
-    }
-    return (1);
+	while (*str)
+	{
+		if (*str < 32 || *str > 126)
+		{
+			return (0);
+		}
+		str++;
+	}
+	return (1);
 }
 /*
 #include <stdio.h>
@@ -28,16 +28,16 @@ int ft_str_is_printable(char *str)
 int ft_str_is_printable(char *str);
 
 int main() {
-    char test1[] = "Hello, world!";
-    char test2[] = "Special\tcharacters\n";
-    char test3[] = "1234567890";
-    char test4[] = "";
+	char test1[] = "Hello, world!";
+	char test2[] = "Special\tcharacters\n";
+	char test3[] = "1234567890";
+	char test4[] = "";
 
-    printf("Test 1 (\"Hello, world!\"): %d\n", ft_str_is_printable(test1));
-    printf("Test 2 (\"Special\\tcharacters\\n\"): %d\n", ft_str_is_printable(test2));
-    printf("Test 3 (\"1234567890\"): %d\n", ft_str_is_printable(test3));
-    printf("Test 4 (\"\"): %d\n", ft_str_is_printable(test4));
+	printf("Test 1 (\"Hello, world!\"): %d\n", ft_str_is_printable(test1));
+	printf("Test 2 (\"Special\\tcharacters\\n\"): %d\n", ft_str_is_printable(test2));
+	printf("Test 3 (\"1234567890\"): %d\n", ft_str_is_printable(test3));
+	printf("Test 4 (\"\"): %d\n", ft_str_is_printable(test4));
 
-    return 0;
+	return 0;
 }
 */
