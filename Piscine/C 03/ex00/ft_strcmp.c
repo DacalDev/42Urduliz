@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 17:00:24 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/26 17:00:57 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:19:09 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strcmp(char *s1, char *s2)
 		s1++;
 		s2++;
 	}
-	return (*(unsigned *)s1 - *(unsigned char *)s2); char
+	return (*(unsigned *)s1 - *(unsigned char *)s2);
 }
 
 /*
