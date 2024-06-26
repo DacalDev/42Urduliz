@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 07:33:18 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/25 19:19:13 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:14:23 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strcapitalize(char *str)
 char *ft_strcapitalize(char *str);
 
 int main(void) {
-    char str[] = "¿salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+    char str[] = "¿salut, coment tu vas ? 42mots quante-deux; cinquante+et+un";
 
     printf("Original: %s\n", str);
     printf("Capitalized: %s\n", ft_strcapitalize(str));

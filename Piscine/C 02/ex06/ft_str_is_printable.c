@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 19:03:22 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/24 07:33:54 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:13:31 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int main() {
 	char test4[] = "";
 
 	printf("Test 1 (\"Hello, world!\"): %d\n", ft_str_is_printable(test1));
-	printf("Test 2 (\"Special\\tcharacters\\n\"): %d\n", ft_str_is_printable(test2));
+	printf("Test 2 (\"Sal\\tchrs\\n\"): %d\n", ft_str_is_printable(test2));
 	printf("Test 3 (\"1234567890\"): %d\n", ft_str_is_printable(test3));
 	printf("Test 4 (\"\"): %d\n", ft_str_is_printable(test4));
 
-	return 0;
+	return (0);
 }
 */
