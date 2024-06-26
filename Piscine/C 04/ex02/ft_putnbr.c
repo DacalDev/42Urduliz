@@ -3,44 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 01:23:50 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/23 11:40:29 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/26 16:43:45 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/26 16:43:45 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft_putchar(char c)
 {
-	char	c;
-
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb *= -1;
-	}
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	c = (nb % 10) + '0';
 	write(1, &c, 1);
 }
- 
-int main(void)
+
+void	ft_putnbr(int nb)
 {
-	ft_putnbr(42);
-	write(1, "\n", 1);
-	ft_putnbr(-42);
-	write(1, "\n", 1);
-	ft_putnbr(0);
-	write(1, "\n", 1);
-	ft_putnbr(123456);
+	if(nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if(nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if(nb > 9)
+	{
+		ft_putnbr(nb / 10);
+	ft_putchar(nb % 10 + '0');
+	}
 }
+/*
+#include <stdio.h>
+
+int main (void)
+{
+	printf("This should be 2147483648\n");
+	ft_putnbr(2147483648);
+	printf("\nThis should be -2147483648\n");
+	ft_putnbr(-2147483648);
+	printf("\nThis should be 0");
+	ft_putnbr(0);
+	printf("\nThis should be 1");
+	ft_putnbr(1);
+	printf("\nThis should be 42");
+	ft_putnbr(42);
+	ft_printf("\n");
+	return (0);
+}
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 01:26:19 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/23 11:52:21 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/26 16:39:31 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/26 16:39:31 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(char *str)
 	}
 	return (result);
 }
- 
+/* 
 #include <stdio.h>
 
 int main(void)
@@ -46,3 +46,4 @@ int main(void)
 	result = ft_atoi(str);
 	printf("%d\n", result);
 }
+*/

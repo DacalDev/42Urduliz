@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 07:34:46 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/24 10:14:39 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/06/26 17:00:24 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/26 17:00:57 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,29 @@ int	ft_strcmp(char *s1, char *s2)
 		s1++;
 		s2++;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (*(unsigned *)s1 - *(unsigned char *)s2); char
 }
+
 /*
-#include <stdio.h>
+#include <unistd.h>
 
-int main() 
+int	main(void)
 {
-    char str1[] = "Hola";
-    char str2[] = "Mundo";
-    char str3[] = "Hola";
+	char	test1[] = "ABA ABZ";
+	char	test2[] = "ABZ";
+	int		result;
 
-    printf("Comparando '%s' con '%s': %d\n", str1, str2, ft_strcmp(str1, str2));
-    printf("Comparando '%s' con '%s': %d\n", str1, str3, ft_strcmp(str1, str3));
-    printf("Comparando '%s' con '%s': %d\n", str2, str3, ft_strcmp(str2, str3));
-
-    return (0);
+	result = ft_strcmp(test1, test2);
+	if (result == 0)
+		write(1, "Las 2 cadenas son iguales.", 26);
+	else
+	{
+		if (result < 0)
+			write(1, "La 1 cadena es menor", 20);
+		else
+			write(1, "La 2 cadenas es menor", 20);
+	}
+	write(1, "\n", 1);
+	return (0);
 }
 */

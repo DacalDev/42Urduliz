@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 01:17:47 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/23 01:19:21 by danperez         ###   ########.fr       */
+/*   Created: 2024/06/26 16:42:33 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/26 16:42:33 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-	int	len;
+	int	i;
 
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 /*
 #include <stdio.h>
 
-int	main(void)
+int main (void)
 {
-	printf("len: %d\n", ft_strlen("Hello, World"));
+	printf("%i", ft_strlen("854dsjfksdlk"));
 }
 */

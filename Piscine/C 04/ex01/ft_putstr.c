@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danperez <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 01:19:56 by danperez          #+#    #+#             */
-/*   Updated: 2024/06/23 01:22:50 by danperez         ###   ########.fr       */
+/*   Created: 2024/06/26 16:43:16 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/06/26 16:43:16 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putstr(char *str)
 {
@@ -19,14 +24,13 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
 }
 /*
-int main(void)
-{
-	char    str[] = "Hello, World";
-	ft_putstr(str);
-}
-*/
+ int main()
+ {
+ 	ft_putstr("Hello World!");
+ }
+ */
