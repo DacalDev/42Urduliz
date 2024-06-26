@@ -31,7 +31,7 @@ int	ft_atoi(char *str)
 			str++;
 		}
 		else
-			break ;
+			break;
 	}
 	return (result);
 }
