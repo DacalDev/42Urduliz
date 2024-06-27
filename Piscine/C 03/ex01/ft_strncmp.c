@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 16:35:25 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/26 17:01:44 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/27 08:01:58 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	if (n == 0)
 		return (0);
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (*s1 - *s2);
 }
 
 /*
@@ -40,9 +40,9 @@ int	main(void)
 	else
 	{
 		if (result < 0)
-			write(1, "La 1 cadena es menor", 20);
+			write(1, "La 1ª cadena es menor", 22);
 		else
-			write(1, "La 2 cadena es menor", 20);
+			write(1, "La 2ª cadena es menor", 22);
 	}
 	write(1, "\n", 1);
 	test1 = "ABA ABZ";
@@ -53,9 +53,9 @@ int	main(void)
 	else
 	{
 		if (result < 0)
-			write(1, "La 1 cadena es menor", 20);
+			write(1, "La 1ª cadena es menor", 22);
 		else
-			write(1, "La 2 cadena es menor", 20);
+			write(1, "La 2ª cadena es menor", 22);
 	}
 	write(1, "\n", 1);
 	test1 = "ABZ ABZ";
@@ -66,9 +66,9 @@ int	main(void)
 	else
 	{
 		if (result < 0)
-			write(1, "La 1 cadena es menor", 20);
+			write(1, "La 1ª cadena es menor", 22);
 		else
-			write(1, "La 2 cadena es menor", 20);
+			write(1, "La 2ª cadena es menor", 22);
 	}
 	write(1, "\n", 1);
 	return (0);

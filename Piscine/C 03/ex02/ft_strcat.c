@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 16:36:04 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/06/26 16:36:31 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/06/27 08:08:51 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ char	*ft_strcat(char *dest, char *src)
 	char	*ptr;
 
 	ptr = dest;
-	while (*ptr)
+	while (*ptr != '\0')
 		ptr++;
 	while (*src)
 	{
@@ -26,7 +26,6 @@ char	*ft_strcat(char *dest, char *src)
 	*ptr = '\0';
 	return (dest);
 }
-
 /*
 #include <stdio.h>
 
@@ -41,4 +40,5 @@ int	main(void)
 	ft_strcat(dest, src);
 	printf("DEST=%s\n", dest);
 	return (0);
-}*/
+}
+*/
