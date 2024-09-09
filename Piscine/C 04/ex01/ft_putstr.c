@@ -29,8 +29,8 @@ void	ft_putstr(char *str)
 	}
 }
 /*
- int main()
- {
- 	ft_putstr("Hello World!");
- }
- */
+int main()
+{
+	ft_putstr("Hello World!");
+}
+*/
