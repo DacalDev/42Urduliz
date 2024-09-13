@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 22:50:46 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/13 18:01:41 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/09/13 18:01:13 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/09/13 18:09:43 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
+#include <stdio.h>
 
-void	ft_ft(int *nbr)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	*nbr = 42;
+	*div = a / b;
+	*mod = a % b;
 }
-/*
+
 int	main(void)
 {
-	int	c;
-	char	str[2];
+	int	x = 42;
+	int	y = 3;
+	int	div2;
+	int	mod2;
 
-	c = 0;
-	ft_ft(&c);
-	str[0] = '0' + c / 10;
-	str[1] = '0' + c % 10;
-	write(1, str, 2);
-	write(1, "\n", 1);
+	printf("Valor inicial de x: %d, y: %d\n", x, y);
+	ft_div_mod(x, y, &div2, &mod2);
+	printf("Valor final de div: %d y mod: %d \n", div2, mod2);
+
 	return (0);
 }
-*/

@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_putdtr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 22:50:46 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/13 18:01:41 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/09/13 19:39:22 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/09/13 19:40:11 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <unistd.h>*/
+#include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_putstr(char *str)
 {
-	*nbr = 42;
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
-/*
+
 int	main(void)
 {
-	int	c;
-	char	str[2];
+	char	str[] = "42Urduliz";
 
-	c = 0;
-	ft_ft(&c);
-	str[0] = '0' + c / 10;
-	str[1] = '0' + c % 10;
-	write(1, str, 2);
-	write(1, "\n", 1);
+	ft_putstr(str);
 	return (0);
 }
-*/
