@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 19:39:22 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/09/13 19:40:11 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/09/15 14:43:20 by marvin            #+#    #+#             */
+/*   Updated: 2024/09/15 14:43:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		write(1, &str[i], 1);
 		i++;
+		str++;
 	}
+	return (i);
 }
 
 int	main(void)
 {
-	char	str[] = "42Urduliz";
+	char	str2[] = "42Urduliz";
+	int	len;
 
-	ft_putstr(str);
+	len = ft_strlen(str2);
+
+	printf("El largo del string es: %d", len);
+
 	return (0);
 }
