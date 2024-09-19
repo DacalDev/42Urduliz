@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   set_point.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 14:43:20 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/19 17:01:29 by jdacal-a         ###   ########.fr       */
+/*   Created: 2024/09/19 17:46:12 by jdacal-a          #+#    #+#             */
+/*   Updated: 2024/09/19 17:46:16 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_point.h"
 
-int	ft_strlen(char *str)
+void set_point(t_point *point)
 {
-	int	i;
-
-	i = 0;
-	while (*str != '\0')
-	{
-		i++;
-		str++;
-	}
-	return (i);
+    point->x = 42;
+    point->y = 21;
 }
 
-int	main(void)
+int main(void)
 {
-	char	str2[] = "42Urduliz";
-	int	len;
-
-	len = ft_strlen(str2);
-
-	printf("El largo del string es: %d", len);
-
-	return (0);
+    t_point point;
+    set_point(&point);
+    return (0);
 }
