@@ -6,23 +6,24 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 22:14:13 by marvin            #+#    #+#             */
-/*   Updated: 2024/09/13 18:01:51 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/09/22 09:08:43 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_print_numbers(void)
+void	ft_print_numbers(void)
 {
-    int i;
+	int		i;
+	char	c;
 
-    i = 48; // El valor ASCII de '0' es 48
-    while (i <= 57) // El valor ASCII de '9' es 57
-    {
-        char c = i; // Convertimos el entero a char antes de escribirlo
-        write(1, &c, 1);
-        i++;
-    }
+	i = 48;
+	c = i;
+	while (i <= 57)
+	{
+		write(1, &c, 1);
+		i++;
+	}
 }
 /*
 int main(void)

@@ -6,17 +6,17 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 18:01:13 by jdacal-a          #+#    #+#             */
-/*   Updated: 2024/09/13 18:09:43 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/09/22 09:14:06 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
 	*div = a / b;
 	*mod = a % b;
 }
+/*
+#include <stdio.h>
 
 int	main(void)
 {
@@ -31,3 +31,4 @@ int	main(void)
 
 	return (0);
 }
+*/
