@@ -1,4 +1,7 @@
 {
     "editor.fontLigatures": true,
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'FiraCode Nerd'"
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'FiraCode Nerd'",
+    "files.associations": {
+        "unistd.h": "c"
+    }
 }
