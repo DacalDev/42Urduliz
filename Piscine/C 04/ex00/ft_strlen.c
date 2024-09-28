@@ -26,6 +26,6 @@ int	ft_strlen(char *str)
 
 int main (void)
 {
-	printf("%i", ft_strlen("854dsjfksdlk"));
+	printf("%i", ft_strlen("Hola Mundo!"));
 }
 */
