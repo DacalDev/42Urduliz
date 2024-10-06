@@ -23,6 +23,24 @@ static int	is_in_set(char c, const char *set)
 	return (0);
 }
 
+char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
@@ -34,13 +52,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	while (s1[start] && is_in_set(s1[start], set))
 		start++;
-	end = strlen(s1);
+	end = ft_strlen(s1);
 	while (end > start && is_in_set(s1[end - 1], set))
 		end--;
 	trimmed_str = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!trimmed_str)
 		return (NULL);
-	strncpy(trimmed_str, &s1[start], end - start);
+	ft_strncpy(trimmed_str, &s1[start], end - start);
 	trimmed_str[end - start] = '\0';
 	return (trimmed_str);
 }
