@@ -11,14 +11,13 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
-char	*ft_strmapi(char const *s)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
 	char			*result;
+	unsigned int	i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	result = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!result)
@@ -26,10 +25,7 @@ char	*ft_strmapi(char const *s)
 	i = 0;
 	while (s[i])
 	{
-		if (i % 2 == 0 && s[i] >= 'a' && s[i] <= 'z')
-			result[i] = ft_toupper(s[i]);
-		else
-			result[i] = s[i];
+		result[i] = f(i, s[i]);
 		i++;
 	}
 	result[i] = '\0';
@@ -38,16 +34,20 @@ char	*ft_strmapi(char const *s)
 /*
 #include <stdio.h>
 
-int	main(void)
+char	to_uppercase(unsigned int index, char c)
 {
-	char	*s = "hello world";
-	char	*result;
+	if (index % 2 == 0)  // Por ejemplo, cambia los caracteres en índices pares
+		return (ft_toupper(c));  // Usamos tu propia función ft_toupper para convertir a mayúsculas.
+	return (c);  // Deja el resto de los caracteres sin cambios.
+}
 
-	result = ft_strmapi(s);
+int main(void)
+{
+	char *result = ft_strmapi("hola mundo", to_uppercase);
 	if (result)
 	{
-		printf("Resultado: %s\n", result); // Salida esperada: "HeLlO WoRlD"
-		free(result); // Liberamos la memoria
+		printf("Resultado: %s\n", result);  // Imprime: "HoLa MuNdO"
+		free(result);
 	}
 	return (0);
 }

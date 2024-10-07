@@ -33,7 +33,7 @@ static void	write_number(int n, int fd)
 	while (i > 0)
 		write(fd, &buffer[--i], 1);
 }
-/*
+
 #include <stdio.h>
 
 void	ft_putnbr_fd(int n, int fd)
@@ -49,7 +49,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write_number(n, fd);
 	}
 }
-
+/*
 int	main(void)
 {
 	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);

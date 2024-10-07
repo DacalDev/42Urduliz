@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -36,15 +38,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	printf("%d\n", ft_atoi("   -12345"));  // Salida: -12345
-	printf("%d\n", ft_atoi("42"));         // Salida: 42
-	printf("%d\n", ft_atoi("  +5678"));    // Salida: 5678
-	printf("%d\n", ft_atoi("   987abc"));  // Salida: 987 (se detiene cuando encuentra 'a')
-	return (0);
-}
-*/

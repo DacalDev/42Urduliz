@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 typedef unsigned long	t_size_t;
 
