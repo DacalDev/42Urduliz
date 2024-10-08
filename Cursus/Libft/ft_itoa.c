@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 08:34:48 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/06 08:34:48 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/08 10:37:34 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*str;
-
-	str = ft_itoa(-12345);
-	if (str)
-	{
-		printf("El número convertido es: %s\n", str);  // Salida: -12345
-		free(str);  // Liberar la memoria
-	}
-	return (0);
-}
-*/
