@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 15:55:37 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/06 15:55:37 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/09 11:11:45 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,3 @@ void	ft_putnbr_fd(int n, int fd)
 		write_number(n, fd);
 	}
 }
-/*
-int	main(void)
-{
-	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (fd < 0)
-	{
-		perror("Error opening file");
-		return (1);
-	}
-
-	ft_putnbr_fd(42, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(-2147483648, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(0, fd);
-	write(fd, "\n", 1);
-
-	close(fd);
-	return (0);
-}
-*/

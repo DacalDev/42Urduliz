@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:12:37 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/08 11:33:21 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/10/09 11:07:42 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,7 @@ int	main()
 
 	printf("\033[1;33mPrueba de ft_putchar\033[0m\n");
 	// Abre el archivo en modo escritura (crea el archivo si no existe, y lo trunca si existe)
-	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	int	fd = open("ft_putchar.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd == -1) // Verifica si hubo un error al abrir el archivo
 	{
 		write(2, "Error al abrir el archivo\n", 27); // Escribir error a stderr
@@ -248,7 +248,29 @@ int	main()
 	ft_putchar_fd('X', fd);
 	// Cierra el archivo
 	close(fd);
-	write(2, "output.txt abierto y rellenado correctamente\n", 46);
+	write(2, "ft_putchar_fd.txt abierto y rellenado correctamente\n", 46);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;34mPrueba de ft_putendl\033[0m\n");
+	ft_putendl_fd("Hola, 42Urduliz!", 1);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;35mPrueba de ft_putnbr\033[0m\n");
+	int	fp = open("ft_putnbr_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fp < 0)
+	{
+		perror("Error opening file");
+		return (1);
+	}
+	ft_putnbr_fd(42, fp);
+	write(fp, "\n", 1);
+	ft_putnbr_fd(-2147483648, fp);
+	write(fp, "\n", 1);
+	ft_putnbr_fd(0, fp);
+	write(fp, "\n", 1);
+	close(fp);
 	printf("\nPresiona Enter para continuar...\n");
 	getchar(); // Espera a que el usuario presione Enter
 
