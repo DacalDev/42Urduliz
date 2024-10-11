@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
@@ -35,22 +35,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
-/*
-#include <stdio.h>
-#include <string.h> // Para comparar con strlcat original
-
-int main()
-{
-    char dest[20] = "Hello, "; // Espacio suficiente para concatenar
-    const char *src = "World!";
-
-    // Usamos ft_strlcat para concatenar la cadena
-    size_t result = ft_strlcat(dest, src, sizeof(dest));
-
-    // Imprimimos el resultado
-    printf("Destino después de ft_strlcat: %s\n", dest);
-    printf("Longitud total de la cadena: %zu\n", result);
-
-    return 0;
-}
-*/

@@ -75,26 +75,3 @@ char	**ft_split(char const *s, char c)
 	split[word_index] = NULL;
 	return (split);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	**result;
-	int		i;
-
-	result = ft_split("Hola---mundo---42", '-');
-	if (result)
-	{
-		i = 0;
-		while (result[i])
-		{
-			printf("result[%d] = '%s'\n", i, result[i]);
-			free(result[i]);
-			i++;
-		}
-		free(result); // Liberar el array
-	}
-	return (0);
-}
-*/

@@ -31,24 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result[i] = '\0';
 	return (result);
 }
-/*
-#include <stdio.h>
-
-char	to_uppercase(unsigned int index, char c)
-{
-	if (index % 2 == 0)  // Por ejemplo, cambia los caracteres en índices pares
-		return (ft_toupper(c));  // Usamos tu propia función ft_toupper para convertir a mayúsculas.
-	return (c);  // Deja el resto de los caracteres sin cambios.
-}
-
-int main(void)
-{
-	char *result = ft_strmapi("hola mundo", to_uppercase);
-	if (result)
-	{
-		printf("Resultado: %s\n", result);  // Imprime: "HoLa MuNdO"
-		free(result);
-	}
-	return (0);
-}
-*/

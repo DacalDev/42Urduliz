@@ -47,9 +47,6 @@ OBJ = $(SRC:.c=.o)
 # Nombre del binario de prueba
 TEST_BIN = test_libft
 
-# Nombre de los .txt de las pruebas
-TXT = output.txt
-
 # Reglas
 
 # Regla principal que compila la librería
@@ -69,8 +66,8 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f $(TEST_BIN)      # Eliminar también el binario de prueba
-	@rm -f $(TXT)           # Eliminar también el archivo de texto de prueba
-	@echo "Librería $(NAME), binario $(TEST_BIN) y archivos de texto $(TXT) de pruebas eliminados."
+	@rm -f *.txt            # Eliminar todos los archivos .txt
+	@echo "Librería $(NAME), binario $(TEST_BIN) y archivos de texto .txt de pruebas eliminados."
 
 # Regla para recompilar todo
 re: fclean all

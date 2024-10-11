@@ -45,25 +45,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	joined_str[index] = '\0';
 	return (joined_str);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	char *s1 = "Hola, ";
-	char *s2 = "mundo!";
-	char *joined_str;
-
-	joined_str = ft_strjoin(s1, s2);
-	if (joined_str)
-	{
-		printf("Concatenación: %s\n", joined_str); // Esperado: "Hola, mundo!"
-		free(joined_str); // Liberar la memoria asignada
-	}
-	else
-	{
-		printf("Error al concatenar cadenas.\n");
-	}
-	return (0);
-}
-*/

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef unsigned long size_t;
+#include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *sub_str, size_t len)
 {
@@ -35,23 +35,3 @@ char	*ft_strnstr(const char *str, const char *sub_str, size_t len)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	const char	*str = "Hola, bienvenido a la programación en C";
-	const char	*sub_str = "bienvenido";
-	size_t len = 30;
-	char *result = ft_strnstr(str, sub_str, len);
-	if (result != 0)
-	{
-		printf("Subcadena encontrada: %s\n", result);
-	}
-	else
-	{
-		printf("Subcadena no encontrada en los primeros %zu caracteres.\n", len);
-	}
-	return (0);
-}
-*/

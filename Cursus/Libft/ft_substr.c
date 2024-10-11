@@ -37,22 +37,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	char	*s;
-	char	*sub;
-
-	s = "Hola, mundo!";
-	// Extraer la substring que empieza en el índice 7 y con longitud 5
-	sub = ft_substr(s, 6, 5);
-	if (sub)
-	{
-		printf("Substring: %s\n", sub); // Esperado: "mundo"
-		free(sub); // Liberar la memoria
-	}
-	return (0);
-}
-*/

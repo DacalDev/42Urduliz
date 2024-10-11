@@ -31,26 +31,3 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	const char *original = "Hola, mundo!";
-	char *duplicado = ft_strdup(original);
-
-	if (duplicado == NULL)
-	{
-		printf("Error al duplicar la cadena.\n");
-		return 1;
-	}
-
-	printf("Cadena original: %s\n", original);
-	printf("Cadena duplicada: %s\n", duplicado);
-
-	// Liberar la memoria asignada para la cadena duplicada
-	free(duplicado);
-
-	return 0;
-}
-*/

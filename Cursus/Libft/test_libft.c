@@ -274,5 +274,256 @@ int	main()
 	printf("\nPresiona Enter para continuar...\n");
 	getchar(); // Espera a que el usuario presione Enter
 
+	printf("\033[1;36mPrueba de ft_putstr_fd\033[0m\n");
+	// Abre el archivo en modo escritura (crea el archivo si no existe, y lo trunca si existe)
+	int ff = open("ft_putstr_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (ff == -1) // Verifica si hubo un error al abrir el archivo
+	{
+		write(2, "Error al abrir el archivo\n", 27); // Escribir error a stderr
+		return (1);
+	}
+	// Escribir una cadena en el archivo usando ft_putstr_fd
+	ft_putstr_fd("Hola, 42 Urduliz!\n", ff);
+	close(ff); // Cierra el archivo
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;31mPrueba de ft_split\033[0m\n");
+	char	**result;
+	int		k;
+	result = ft_split("Hola---mundo---42", '-');
+	if (result)
+	{
+		k = 0;
+		while (result[k])
+		{
+			printf("result[%d] = '%s'\n", k, result[k]);
+			free(result[k]);
+			k++;
+		}
+		free(result); // Liberar el array
+	}
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;32mPrueba de ft_strchr\033[0m\n");
+	const	char *cadena = "Hola mundo";
+	char	carac = 'm';
+	// Busca el carácter 'm' en la cadena
+	char	*resul = ft_strchr(cadena, carac);
+	if (resul != NULL)
+	{
+		printf("El carácter '%c' se encontró en la posición: %ld\n", carac, resul - cadena);
+	}
+	else
+		printf("El carácter '%c' no se encontró en la cadena.\n", carac);
+	// Prueba con el carácter nulo
+	resul = ft_strchr(cadena, '\0');
+	printf("El carácter nulo se encuentra en la posición: %ld\n", resul - cadena);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;33mPrueba de ft_strdup\033[0m\n");
+	const char *original = "Hola, mundo!";
+	char *duplicado = ft_strdup(original);
+	if (duplicado == NULL)
+	{
+		printf("Error al duplicar la cadena.\n");
+		return 1;
+	}
+	printf("Cadena original: %s\n", original);
+	printf("Cadena duplicada: %s\n", duplicado);
+
+	// Liberar la memoria asignada para la cadena duplicada
+	free(duplicado);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;34mPrueba de ft_striteri\033[0m\n");
+	void	print_char(unsigned int i, char *c)
+		{
+			printf("Index: %u, Char: %c\n", i, *c);
+		}
+	char	strin[] = "hello world";
+	ft_striteri(strin, print_char);
+	printf("Resultado: %s\n", strin);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;35mPrueba de ft_strjoin\033[0m\n");
+	char *s1 = "Hola, ";
+	char *s2 = "mundo!";
+	char *joined_str;
+	joined_str = ft_strjoin(s1, s2);
+	if (joined_str)
+	{
+		printf("Concatenación: %s\n", joined_str); // Esperado: "Hola, mundo!"
+		free(joined_str); // Liberar la memoria asignada
+	}
+	else
+		printf("Error al concatenar cadenas.\n");
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;36mPrueba de ft_strlcat\033[0m\n");
+	char dest[20] = "Hello, "; // Espacio suficiente para concatenar
+	const char *src = "World!";
+	// Usamos ft_strlcat para concatenar la cadena
+	size_t resulta = ft_strlcat(dest, src, sizeof(dest));
+	// Imprimimos el resultado
+	printf("Destino después de ft_strlcat: %s\n", dest);
+	printf("Longitud total de la cadena: %zu\n", resulta);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;31mPrueba de ft_strlcpy\033[0m\n");
+	char desti[20]; // Espacio suficiente para la copia
+	const char *srce = "Hello, World!";
+	// Usamos ft_strlcpy para copiar la cadena
+	size_t resu = ft_strlcpy(desti, src, sizeof(desti));
+	// Imprimimos el resultado
+	printf("Fuente: %s\n", srce);
+	printf("Destino: %s\n", desti);
+	printf("Longitud total de la fuente: %zu\n", resu);
+	// Probar el comportamiento con size = 0
+	size_t result_zero = ft_strlcpy(desti, srce, 0);
+	printf("Longitud total de la fuente (con size=0): %zu\n", result_zero);
+	printf("Destino (con size=0): %s\n", desti);
+	// Debería seguir siendo "Hello, World!"
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;32mPrueba de ft_strlen\033[0m\n");
+	printf("La longitud de la cadena es: %zu\n", ft_strlen("Hola Mundo!"));
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;33mPrueba de ft_strmapi\033[0m\n");
+	char	to_uppercase(unsigned int index, char c)
+	{
+		if (index % 2 == 0)
+		// Por ejemplo, cambia los caracteres en índices pares
+			return (ft_toupper(c));
+			// Usamos tu propia función ft_toupper para convertir a mayúsculas.
+		return (c);
+		// Deja el resto de los caracteres sin cambios.
+	}
+		char *resultad = ft_strmapi("hola mundo", to_uppercase);
+	if (resultad)
+	{
+		printf("Resultado: %s\n", resultad);
+		// Imprime: "HoLa MuNdO"
+		free(resultad);
+	}
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;34mPrueba de ft_strncmp\033[0m\n");
+	const char *stri1 = "Hola, mundo";
+	const char *stri2 = "Hola, amigos";
+	const char *stri3 = "Hola, mundo";
+	const char *stri4 = "H";
+	size_t y;
+	// Comparación de las primeras 7 letras
+	y = 7;
+	printf("Comparando las primeras %zu letras de \"%s\" y \"%s\":\n", y, stri1, stri2);
+	if (ft_strncmp(stri1, stri2, y) == 0)
+		printf("Son iguales en los primeros %zu caracteres.\n", y);
+	else
+		printf("Son diferentes en los primeros %zu caracteres.\n", y);
+	// Comparación completa entre stri1 y stri3
+	y = strlen(stri1);
+	printf("\nComparando \"%s\" y \"%s\" en sus primeros %zu caracteres:\n", stri1, stri3, y);
+	if (ft_strncmp(stri1, stri3, y) == 0)
+		printf("Son iguales en los primeros %zu caracteres.\n", y);
+	else
+		printf("Son diferentes en los primeros %zu caracteres.\n", y);
+	// Comparación de una cadena corta con una larga (primer carácter)
+	y = 1; // Ahora comparamos solo el primer carácter
+	printf("\nComparando las primeras %zu letras de \"%s\" y \"%s\":\n", y, stri4, stri1);
+	if (ft_strncmp(stri4, stri1, y) == 0)
+		printf("Son iguales en los primeros %zu caracteres.\n", y);
+	else
+		printf("Son diferentes en los primeros %zu caracteres.\n", y);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;35mPrueba de ft_strnstr\033[0m\n");
+	const char	*st = "Hola, bienvenido a la programación en C";
+	const char	*sub_st  = "bienvenido";
+	size_t leng = 20;
+	char *res = ft_strnstr(st, sub_st, leng);
+	if (res != 0)
+		printf("Subcadena encontrada: %s\n", res);
+	else
+		printf("Subcadena no encontrada en los primeros %zu caracteres.\n", leng);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;36mPrueba de ft_strrchr\033[0m\n");
+	const char	*cad;
+	char		*re;
+	char		cara;
+	cad = "Hola, mundo";
+	cara = 'm';
+	re = ft_strrchr(cad, cara);
+	// Buscar la última aparición de 'caracter'
+	if (re != 0)
+		printf("La última aparición de '%c' está en la posición: %ld\n", cara, re - cad);
+	else
+		printf("No se encontró el carácter '%c' en la cadena.\n", cara);
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;31mPrueba de ft_strtrim\033[0m\n");
+	char *se1 = "   ---Hola, mundo---   ";
+	char *set = " -";
+	char *trimmed;
+	trimmed = ft_strtrim(se1, set);
+	if (trimmed)
+	{
+		printf("Resultado: '%s'\n", trimmed);  // Esperado: "Hola, mundo"
+		free(trimmed); // Liberar la memoria
+	}
+	else
+		printf("Error al recortar la cadena.\n");
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;32mPrueba de ft_substr\033[0m\n");
+	char	*s;
+	char	*sub;
+	s = "Hola, mundo!";
+	// Extraer la substring que empieza en el índice 7 y con longitud 5
+	sub = ft_substr(s, 6, 5);
+	if (sub)
+	{
+		printf("Substring: %s\n", sub); // Esperado: "mundo"
+		free(sub); // Liberar la memoria
+	}
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;33mPrueba de ft_tolower\033[0m\n");
+	char	letra;
+	char	letra_minuscula;
+	letra = 'W';
+	letra_minuscula = ft_tolower(letra);
+	printf("Letra en minúscula: %c\n", letra_minuscula);
+	char simbolo = '%';
+	printf("Carácter no alfabético: %c\n", ft_tolower(simbolo));
+	printf("\nPresiona Enter para continuar...\n");
+	getchar(); // Espera a que el usuario presione Enter
+
+	printf("\033[1;34mPrueba de ft_toupper\033[0m\n");
+	char	letter;
+	char	letra_mayuscula;
+	letter = 'x';
+	letra_mayuscula = ft_toupper(letter);
+	printf("Letra en mayúscula: %c\n", letra_mayuscula);
+	char simbol = '%';
+	printf("Carácter no alfabético: %c\n", ft_toupper(simbol));
+	printf("\n¡Test finalizados con exito!\n");
+
 	return (0);
 }

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int i)
 {
 	if (i >= 'A' && i <= 'Z')
@@ -18,19 +20,3 @@ int	ft_tolower(int i)
 	}
 	return (i);
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	char	letra;
-	char	letra_minuscula;
-
-	letra = 'W';
-	letra_minuscula = ft_tolower(letra);
-	printf("Letra en minúscula: %c\n", letra_minuscula);
-	char simbolo = '%';
-	printf("Carácter no alfabético: %c\n", ft_tolower(simbolo));
-	return (0);
-}
-*/

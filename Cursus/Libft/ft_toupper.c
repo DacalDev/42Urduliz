@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_toupper(int i)
 {
 	if (i >= 'a' && i <= 'z')
@@ -18,19 +20,3 @@ int	ft_toupper(int i)
 	}
 	return (i);
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	char	letra;
-	char	letra_mayuscula;
-
-	letra = 'x';
-	letra_mayuscula = ft_toupper(letra);
-	printf("Letra en mayúscula: %c\n", letra_mayuscula);
-	char simbolo = '%';
-	printf("Carácter no alfabético: %c\n", ft_toupper(simbolo));
-	return (0);
-}
-*/

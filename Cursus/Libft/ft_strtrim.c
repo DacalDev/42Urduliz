@@ -62,23 +62,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trimmed_str[end - start] = '\0';
 	return (trimmed_str);
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	char *s1 = "   ---Hola, mundo---   ";
-	char *set = " -";
-	char *trimmed;
-
-	trimmed = ft_strtrim(s1, set);
-	if (trimmed)
-	{
-		printf("Resultado: '%s'\n", trimmed);  // Esperado: "Hola, mundo"
-		free(trimmed); // Liberar la memoria
-	}
-	else
-		printf("Error al recortar la cadena.\n");
-	return (0);
-}
-*/
