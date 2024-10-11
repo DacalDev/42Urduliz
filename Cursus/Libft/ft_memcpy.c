@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:08:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/11 18:38:15 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/10/11 21:28:35 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*s;
 	size_t				i;
 
-	if (!dest && !src)
-		return (NULL);
 	if (!dest || !src)
 		return (NULL);
 	d = (unsigned char *)dest;
