@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:12:37 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/09 11:07:42 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:33:52 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,7 +266,7 @@ int	main()
 	}
 	ft_putnbr_fd(42, fp);
 	write(fp, "\n", 1);
-	ft_putnbr_fd(-2147483648, fp);
+	ft_putnbr_fd(-1234, fp);
 	write(fp, "\n", 1);
 	ft_putnbr_fd(0, fp);
 	write(fp, "\n", 1);
