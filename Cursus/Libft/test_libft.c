@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
 int	main()
 {
@@ -42,31 +43,49 @@ int	main()
 	getchar(); // Espera a que el usuario presione Enter
 
 	printf("\033[1;33mPrueba de ft_calloc\033[0m\n");
-	size_t	num_elements = 5;
-	int		*array = (int *)calloc(num_elements, sizeof(int)); // Asignar memoria para 5 enteros
-	if (array == NULL)
-	{
-		// Verificar si la asignación de memoria falló
-		fprintf(stderr, "Error al asignar memoria.\n");
-		return 1;
+	void *ptr;
+	size_t j;     // Reemplazamos i por j
+	size_t num;   // Declaración de num
+	size_t siz;   // Declaración de siz
+	// Prueba 1: Asignación de memoria para un array pequeño de 5 elementos de 4 bytes cada uno (int)
+	num = 5;
+	siz = sizeof(int);
+	ptr = ft_calloc(num, siz);
+	printf("Prueba 1: ft_calloc(%zu, %zu) = %p (esperado: dirección válida)\n", num, siz, ptr);
+	if (ptr) {
+		int *arr = (int *)ptr;
+		// Verificar si la memoria está inicializada a 0
+		for (j = 0; j < num; j++)
+			printf("%d ", arr[j]);
+		printf("\n");
+		free(ptr);
 	}
-	// Mostrar los valores inicializados (deben ser todos ceros)
-	for (size_t i = 0; i < num_elements; i++)
-	{
-		printf("array[%zu] = %d\n", i, array[i]); // Salida: array[i] = 0
+	// Prueba 2: Asignación de memoria para un array de 10 caracteres
+	num = 10;
+	siz = sizeof(char);
+	ptr = ft_calloc(num, siz);
+	printf("Prueba 2: ft_calloc(%zu, %zu) = %p (esperado: dirección válida)\n", num, siz, ptr);
+	if (ptr) {
+		char *str = (char *)ptr;
+		// Verificar si la memoria está inicializada a 0
+		for (j = 0; j < num; j++)
+			printf("%d ", str[j]);  // Debería imprimir 0s
+		printf("\n");
+		free(ptr);
 	}
-	// Asignar valores
-	for (size_t i = 0; i < num_elements; i++)
-	{
-		array[i] = i + 1; // Llenar el array con valores 1, 2, 3, 4, 5
+	// Prueba 3: Asignación de memoria para un array grande (1000 dobles)
+	num = 1000;
+	siz = sizeof(double);
+	ptr = ft_calloc(num, siz);
+	printf("Prueba 3: ft_calloc(%zu, %zu) = %p (esperado: dirección válida)\n", num, siz, ptr);
+	if (ptr) {
+		double *arr = (double *)ptr;
+		// Verificar si la memoria está inicializada a 0
+		for (j = 0; j < 10; j++)  // Solo imprimimos los primeros 10 elementos
+			printf("%.1f ", arr[j]);  // Debería imprimir 0.0
+		printf("\n");
+		free(ptr);
 	}
-	// Mostrar los valores asignados
-	for (size_t i = 0; i < num_elements; i++)
-	{
-		printf("array[%zu] = %d\n", i, array[i]); // Salida: array[i] = 1, 2, 3, 4, 5
-	}
-	// Liberar la memoria asignada
-	free(array);
 	printf("\nPresiona Enter para continuar...\n");
 	getchar(); // Espera a que el usuario presione Enter
 
