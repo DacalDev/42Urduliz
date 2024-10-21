@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void	ft_puthex(unsigned int num, int uppercase, int *num_printed)
+static void	ft_puthex(unsigned int num, int uppercase, int *num_print)
 {
 	char	*hex;
 
@@ -21,12 +21,12 @@ static void	ft_puthex(unsigned int num, int uppercase, int *num_printed)
 	else
 		hex = "0123456789abcdef";
 	if (num >= 16)
-		ft_puthex(num / 16, uppercase, num_printed);
-	*num_printed = ft_print_char(hex[num % 16], *num_printed);
+		ft_puthex(num / 16, uppercase, num_print);
+	*num_print = ft_print_char(hex[num % 16], *num_print);
 }
 
-int	ft_print_hex(unsigned int num, int num_printed, int uppercase)
+int	ft_print_hex(unsigned int num, int num_print, int uppercase)
 {
-	ft_puthex(num, uppercase, &num_printed);
-	return (num_printed);
+	ft_puthex(num, uppercase, &num_print);
+	return (num_print);
 }

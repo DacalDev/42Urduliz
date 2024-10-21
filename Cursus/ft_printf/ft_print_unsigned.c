@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-int	ft_print_unsigned(unsigned int num, int num_printed)
+int	ft_print_unsigned(unsigned int num, int num_print)
 {
 	if (num >= 10)
-		num_printed = ft_print_unsigned(num / 10, num_printed);
-	num_printed = ft_print_char((num % 10) + '0', num_printed);
-	return (num_printed);
+		num_print = ft_print_unsigned(num / 10, num_print);
+	num_print = ft_print_char((num % 10) + '0', num_print);
+	return (num_print);
 }

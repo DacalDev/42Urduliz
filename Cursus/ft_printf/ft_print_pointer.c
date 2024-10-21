@@ -12,22 +12,22 @@
 
 #include "ft_printf.h"
 
-static void	ft_puthex(unsigned long long num, int *num_printed)
+static void	ft_puthex(unsigned long long num, int *num_print)
 {
 	char	*hex;
 
 	hex = "0123456789abcdef";
 	if (num >= 16)
-		ft_puthex(num / 16, num_printed);
-	*num_printed = ft_print_char(hex[num % 16], *num_printed);
+		ft_puthex(num / 16, num_print);
+	*num_print = ft_print_char(hex[num % 16], *num_print);
 }
 
-int	ft_print_pointer(void *ptr, int num_printed)
+int	ft_print_pointer(void *ptr, int num_print)
 {
 	unsigned long long	addr;
 
 	addr = (unsigned long long)ptr;
-	num_printed = ft_print_string("0x", num_printed);
-	ft_puthex(addr, &num_printed);
-	return (num_printed);
+	num_print = ft_print_string("0x", num_print);
+	ft_puthex(addr, &num_print);
+	return (num_print);
 }

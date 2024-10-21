@@ -17,11 +17,11 @@
 # include <stdarg.h>
 
 int ft_printf(const char *format, ...);
-int ft_print_char(char c, int num_printed);
-int ft_print_string(char *str, int num_printed);
-int ft_print_pointer(void *ptr, int num_printed);
-int ft_print_decimal(int num, int num_printed);
-int ft_print_unsigned(unsigned int num, int num_printed);
-int ft_print_hex(unsigned int num, int num_printed, int uppercase);
+int ft_print_char(char c, int num_print);
+int ft_print_string(char *str, int num_print);
+int ft_print_pointer(void *ptr, int num_print);
+int ft_print_decimal(int num, int num_print);
+int ft_print_unsigned(unsigned int num, int num_print);
+int ft_print_hex(unsigned int num, int num_print, int uppercase);
 
 #endif

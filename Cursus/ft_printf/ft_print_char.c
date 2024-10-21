@@ -12,8 +12,8 @@
 
 #include "ft_printf.h"
 
-int	ft_print_char(char c, int num_printed)
+int	ft_print_char(char c, int num_print)
 {
 	write(1, &c, 1);
-	return (num_printed + 1);
+	return (num_print + 1);
 }

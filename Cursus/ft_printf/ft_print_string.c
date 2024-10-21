@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-int	ft_print_string(char *str, int num_printed)
+int	ft_print_string(char *str, int num_print)
 {
 	while (*str)
 	{
-		num_printed = ft_print_char(*str, num_printed);
+		num_print = ft_print_char(*str, num_print);
 		str++;
 	}
-	return (num_printed);
+	return (num_print);
 }
