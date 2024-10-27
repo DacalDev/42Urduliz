@@ -71,7 +71,7 @@ int main()
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 8: Números sin signo
-	ret1 = printf("%u\n", 4294967295);  // Valor máximo para unsigned int en 32 bits
+	ret1 = printf("%u\n", 4294967295);
 	ret2 = ft_printf("%u\n", 4294967295);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
