@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:55:44 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/27 12:44:33 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/10/27 13:02:19 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,32 @@ int main()
 	ret1 = printf("%p\n", (void *)&a);
 	ret2 = ft_printf("%p\n", (void *)&a);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	// Caso 8: Números sin signo
+	ret1 = printf("%u\n", 4294967295);  // Valor máximo para unsigned int en 32 bits
+	ret2 = ft_printf("%u\n", 4294967295);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	ret1 = printf("%u\n", 0);  // Caso límite inferior
+	ret2 = ft_printf("%u\n", 0);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	ret1 = printf("%u\n", 123456789);  // Caso general
+	ret2 = ft_printf("%u\n", 123456789);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	// Caso 9: Números negativos con %u
+	ret1 = printf("%u\n", -1);
+	ret2 = ft_printf("%u\n", -1);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	ret1 = printf("%u\n", -42);
+	ret2 = ft_printf("%u\n", -42);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	ret1 = printf("%u\n", -123456789);
+	ret2 = ft_printf("%u\n", -123456789);
+	printf("Return printf: %d, Return ft_printf: %d\n", ret1, ret2);
 
 	return 0;
 }
