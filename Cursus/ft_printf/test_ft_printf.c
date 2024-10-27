@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:55:44 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/19 23:55:44 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/27 12:44:33 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,52 +22,54 @@ int main()
 	ret2 = ft_printf("Hola Mundo\n");
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
-	ret1 = printf("%d\n", 123);
-	ret2 = ft_printf("%d\n", 123);
+	ret1 = printf("%d\n", 1230);
+	ret2 = ft_printf("%d\n", 1230);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
-	ret1 = printf("%x\n", 255);
-	ret2 = ft_printf("%x\n", 255);
+	ret1 = printf("%x\n", 1200);
+	ret2 = ft_printf("%x\n", 1200);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	ret1 = printf("%p\n", (void*)0xdeadbeef);
 	ret2 = ft_printf("%p\n", (void*)0xdeadbeef);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
-	/* Caso 1: Cadena nula
-	ret1 = printf("printf: %s\n", (char *)NULL); // Comportamiento indefinido, pero igual que printf.
-	ret2 = ft_printf("ft_printf: %s\n", (char *)NULL); // Se comporta igual.
-	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2); */
+	/*
+	// Caso 1: Cadena nula
+	ret1 = printf("%s\n", (char *)NULL);
+	ret2 = ft_printf("%s\n", (char *)NULL);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+	*/
 
 	// Caso 2: Cadena vacía
-	ret1 = printf("printf: %s\n", "");
-	ret2 = ft_printf("ft_printf: %s\n", "");
+	ret1 = printf("%s\n", "");
+	ret2 = ft_printf("%s\n", "");
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 3: Especificador de porcentaje
-	ret1 = printf("printf: %%\n");
-	ret2 = ft_printf("ft_printf: %%\n");
+	ret1 = printf("%%\n");
+	ret2 = ft_printf("%%\n");
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 4: Enteros negativos
-	ret1 = printf("printf: %d\n", -42);
-	ret2 = ft_printf("ft_printf: %d\n", -42);
+	ret1 = printf("%d\n", -4200000);
+	ret2 = ft_printf("%d\n", -4200000);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 5: Números hexadecimales
-	ret1 = printf("printf: %x\n", 255);
-	ret2 = ft_printf("ft_printf: %x\n", 255);
+	ret1 = printf("%x\n", 255);
+	ret2 = ft_printf("%x\n", 255);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 6: Números enteros extremos
-	ret1 = printf("printf: %d\n", (int)-2147483648);
-	ret2 = ft_printf("ft_printf: %d\n", (int)-2147483648);
+	ret1 = printf("%d\n", (int)-2147483648);
+	ret2 = ft_printf("%d\n", (int)-2147483648);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 7: Puntero
 	int a = 42;
-	ret1 = printf("printf: %p\n", (void *)&a);
-	ret2 = ft_printf("ft_printf: %p\n", (void *)&a);
+	ret1 = printf("%p\n", (void *)&a);
+	ret2 = ft_printf("%p\n", (void *)&a);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	return 0;
