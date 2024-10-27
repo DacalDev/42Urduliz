@@ -34,12 +34,10 @@ int main()
 	ret2 = ft_printf("%p\n", (void*)0xdeadbeef);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
-	/*
 	// Caso 1: Cadena nula
 	ret1 = printf("%s\n", (char *)NULL);
-	ret2 = ft_printf("%s\n", (char *)NULL);
+	ret2 = ft_printf("%s\n", (char *)NULL);\
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
-	*/
 
 	// Caso 2: Cadena vacía
 	ret1 = printf("%s\n", "");

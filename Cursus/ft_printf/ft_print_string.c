@@ -14,6 +14,8 @@
 
 int	ft_print_string(char *str, int num_print)
 {
+	if (!str)
+		return (ft_print_string("(null)", num_print));
 	while (*str)
 	{
 		num_print = ft_print_char(*str, num_print);
