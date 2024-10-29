@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:55:44 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/27 13:02:19 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/10/29 10:14:25 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
 
 	// Caso 1: Cadena nula
 	ret1 = printf("%s\n", (char *)NULL);
-	ret2 = ft_printf("%s\n", (char *)NULL);\
+	ret2 = ft_printf("%s\n", (char *)NULL);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 2: Cadena vacía
@@ -68,6 +68,10 @@ int main()
 	int a = 42;
 	ret1 = printf("%p\n", (void *)&a);
 	ret2 = ft_printf("%p\n", (void *)&a);
+	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
+
+	ret1 = printf("%p\n", (char *)NULL);
+	ret2 = ft_printf("%p\n", (char *)NULL);
 	printf("Return printf: %d, Return ft_printf: %d\n\n", ret1, ret2);
 
 	// Caso 8: Números sin signo

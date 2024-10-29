@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 23:38:27 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/19 23:38:27 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/29 10:18:48 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_print_pointer(void *ptr, int num_print)
 {
 	unsigned long long	addr;
 
+	if (!ptr)
+		return (ft_print_string("(nil)", num_print));
 	addr = (unsigned long long)ptr;
 	num_print = ft_print_string("0x", num_print);
 	ft_puthex(addr, &num_print);
