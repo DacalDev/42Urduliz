@@ -41,7 +41,7 @@ clean:
 # Regla para limpiar los archivos objeto y la librería
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Librería $(NAME)y archivos objeto eliminados."
+	@echo "Librería $(NAME) y archivos objeto eliminados."
 
 # Regla para recompilar todo
 re: fclean all
