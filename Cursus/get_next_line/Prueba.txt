@@ -1,0 +1,97 @@
+### 1. ¿Qué me pide el ejercicio?
+
+El objetivo principal del ejercicio es escribir una función en C llamada `get_next_line` que permita leer una línea completa de un archivo utilizando su file descriptor (`fd`). La función deberá:
+
+- Leer el archivo línea por línea hasta llegar al final.
+- Devolver cada línea completa (con el carácter `\n` al final si es necesario).
+- Retornar `NULL` si no hay más líneas que leer o si se produce un error de lectura.
+
+La función `get_next_line` debe comportarse de la misma manera al leer de un archivo o desde la entrada estándar (`stdin`), y tiene que poder manejar distintos tamaños de buffer de lectura.
+
+---
+
+### 2. ¿Qué es lo principal que debo aprender de este ejercicio?
+
+Las habilidades clave que aprenderás con este ejercicio son:
+
+- **Manejo de file descriptors**: Aprenderás a trabajar directamente con file descriptors usando `read` para leer un archivo o `stdin` en lugar de funciones de alto nivel como `fgets`.
+- **Uso de variables estáticas**: Aprenderás sobre las variables estáticas en C y cómo pueden retener su valor entre llamadas a la función.
+- **Gestión de memoria**: Como se utilizan punteros y `malloc` para almacenar temporalmente los datos leídos, es fundamental que gestiones la memoria correctamente y liberes toda la memoria asignada.
+- **Control de buffers y lectura de bloques**: La función debe trabajar en función de un tamaño de buffer (`BUFFER_SIZE`) que varía según lo definan los evaluadores.
+
+Este ejercicio también refuerza el entendimiento de conceptos avanzados de C como la modularización y el uso de varios archivos fuente.
+
+---
+
+### 3. ¿Por dónde empiezo?
+
+Para empezar, hay algunos pasos recomendados:
+
+### a. Configura los archivos y estructura del proyecto
+
+1. **Crea los archivos iniciales**:
+    - `get_next_line.c`: Contendrá la función `get_next_line`.
+    - `get_next_line_utils.c`: Aquí colocarás funciones auxiliares necesarias para que `get_next_line` funcione correctamente.
+    - `get_next_line.h`: Este archivo de cabecera contendrá los prototipos de las funciones y otras definiciones necesarias.
+
+### b. Comprende la estructura de la función `get_next_line`
+
+La función `get_next_line` necesita manejar varios aspectos:
+
+1. **Lectura con buffer**:
+    - Define un tamaño de buffer (`BUFFER_SIZE`) para las lecturas.
+    - Cada vez que llamas a `read`, lees hasta `BUFFER_SIZE` bytes y almacenas estos datos en el buffer.
+    - Si se encuentra un carácter de nueva línea (`\n`), debes retornar la línea actual. Si no, acumulas el contenido hasta formar una línea completa.
+2. **Uso de una variable estática**:
+    - Usa una variable estática para retener cualquier dato sobrante entre llamadas a `get_next_line`.
+    - Esto permite que, si una línea se corta entre dos bloques leídos, puedas continuar desde donde se quedó la lectura anterior.
+3. **Gestión de memoria**:
+    - Utiliza `malloc` para crear espacio dinámico donde almacenar las líneas a devolver.
+    - Asegúrate de liberar toda la memoria asignada cuando ya no se necesite (como al final de cada lectura).
+
+---
+
+### 4. Partes fundamentales del ejercicio
+
+A continuación, se desglosan las partes fundamentales del código para `get_next_line`.
+
+### a. **Función principal (`get_next_line`)**
+
+La función principal realiza el siguiente flujo:
+
+1. **Leer del archivo** usando `read` en bloques del tamaño `BUFFER_SIZE`.
+2. **Acumular los datos leídos**: Si no se encuentra un `\n`, almacena los datos leídos en la variable estática para la próxima llamada.
+3. **Procesar líneas completas**: Si el bloque leído contiene un `\n`, extrae la línea hasta ese punto y almacena cualquier resto en la variable estática para la próxima llamada.
+4. **Retornar la línea**: Cuando se encuentra una línea completa (con `\n` o sin él si es la última línea del archivo), retorna la línea acumulada.
+
+### b. **Funciones auxiliares (`get_next_line_utils.c`)**
+
+Aquí colocarás funciones que ayuden a `get_next_line`. Algunas sugerencias de funciones auxiliares incluyen:
+
+- **Función para unir cadenas (`str_join`)**: Permite unir la cadena acumulada y el nuevo bloque leído.
+- **Función para buscar el `\n` (`find_newline`)**: Te ayuda a detectar si un bloque contiene el carácter de nueva línea y a determinar su posición.
+- **Función para dividir cadenas (`split_line`)**: Extrae la línea completa hasta el `\n` y guarda el resto en la variable estática.
+- **Función para limpiar memoria (`free_memory`)**: Libera memoria al final de cada línea o cuando ocurre un error.
+
+### c. **Manejo de la memoria**
+
+Es importante limpiar cualquier fragmento de memoria que se haya dejado reservado al finalizar la ejecución de la función o en caso de error. Asegúrate de:
+
+- Usar `free` para liberar el buffer estático si ya no es necesario.
+- Retornar `NULL` al final del archivo o si ocurre un error, después de liberar la memoria.
+
+### d. **Optimización del uso de `read`**
+
+Asegúrate de que `get_next_line` esté optimizado para no leer más de lo necesario. Usa `read` solo cuando sea necesario y evita cargar todo el archivo en memoria de una sola vez.
+
+---
+
+### Resumen de pasos
+
+1. Configura tus archivos (`get_next_line.c`, `get_next_line_utils.c`, `get_next_line.h` y el `Makefile`).
+2. Define la función `get_next_line`:
+    - Lee en bloques.
+    - Acumula líneas y usa la variable estática para datos sobrantes.
+3. Implementa las funciones auxiliares necesarias en `get_next_line_utils.c`.
+4. Controla y libera la memoria cuidadosamente.
+5. Asegúrate de que funcione con diferentes tamaños de `BUFFER_SIZE`.
