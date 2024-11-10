@@ -88,7 +88,7 @@ Asegúrate de que `get_next_line` esté optimizado para no leer más de lo neces
 
 ### Resumen de pasos
 
-1. Configura tus archivos (`get_next_line.c`, `get_next_line_utils.c`, `get_next_line.h` y el `Makefile`).
+1. Configura tus archivos (`get_next_line.c`, `get_next_line_utils.c` y el `get_next_line.h`).
 2. Define la función `get_next_line`:
     - Lee en bloques.
     - Acumula líneas y usa la variable estática para datos sobrantes.

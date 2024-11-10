@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_n3ext_line.c                                   :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 19:56:07 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/08 19:56:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/10 16:08:36 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 100
+#endif
 
 static char	*extract_line(char **saved)
 {
