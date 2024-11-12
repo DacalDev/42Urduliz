@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:07:53 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/08 20:07:53 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/12 10:01:32 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void)
 {
-	int	fd = open("Prueba.txt", O_RDONLY);
+	int	fd = open("test.txt", O_RDONLY);
 	char	*line;
 
 	if (fd == -1)
