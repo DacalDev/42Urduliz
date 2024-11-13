@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 19:56:07 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/12 11:40:39 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2024/11/13 11:56:43 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,57 @@
 #define MAX_SAFE_BUFFER 8376793
 #define INTERNAL_READ_SIZE 1024
 
-static unsigned long long adjust_buffer_size(unsigned long long buffer_size)
+static unsigned long long	adjust_buffer_size(unsigned long long buffer_size)
 {
 	if (buffer_size > MAX_SAFE_BUFFER)
 		return (1024);
 	return (buffer_size);
 }
 
-static char *extract_line(char **saved)
+static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char *line;
-	char *newline_pos;
-	char *temp;
+	size_t	i;
+
+	if (!src || !dst)
+		return (0);
+	i = 0;
+	if (dstsize > 0)
+	{
+		while (src[i] && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[i])
+		i++;
+	return (i);
+}
+
+static char	*extract_line(char **saved)
+{
+	char	*line;
+	char	*newline_pos;
+	char	*temp;
+	int		line_len;
 
 	newline_pos = ft_strchr(*saved, '\n');
 	if (newline_pos)
 	{
-		line = ft_strdup(*saved);
+		line_len = newline_pos - *saved + 1;
+		line = (char *)malloc(line_len + 1);
 		if (!line)
 			return (NULL);
-		line[newline_pos - *saved + 1] = '\0';  // Corta la línea en el salto de línea
-		temp = ft_strdup(newline_pos + 1);  // Extrae el resto después del salto de línea
+		ft_strlcpy(line, *saved, line_len + 1);
+		temp = ft_strdup(newline_pos + 1);
 		free(*saved);
 		*saved = temp;
+		if (**saved == '\0')
+		{
+			free(*saved);
+			*saved = NULL;
+		}
 	}
 	else
 	{
@@ -52,11 +80,11 @@ static char *extract_line(char **saved)
 	return (line);
 }
 
-static int read_into_saved(int fd, char **saved)
+static int	read_into_saved(int fd, char **saved)
 {
-	char internal_buffer[INTERNAL_READ_SIZE + 1];
-	int bytes_read;
-	char *temp;
+	char	internal_buffer[INTERNAL_READ_SIZE + 1];
+	int		bytes_read;
+	char	*temp;
 
 	bytes_read = read(fd, internal_buffer, INTERNAL_READ_SIZE);
 	if (bytes_read > 0)
@@ -71,32 +99,25 @@ static int read_into_saved(int fd, char **saved)
 	return (bytes_read);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *saved;
-	int bytes_read;
-	unsigned long long buffer_size;
+	static char			*saved;
+	int					bytes_read;
+	unsigned long long	buffer_size;
 
 	buffer_size = adjust_buffer_size(BUFFER_SIZE);
 	if (fd < 0 || buffer_size <= 0)
 		return (NULL);
-
-	// Lee los datos en el buffer
 	bytes_read = read_into_saved(fd, &saved);
-
 	while (bytes_read > 0 && !ft_strchr(saved, '\n'))
 	{
 		bytes_read = read_into_saved(fd, &saved);
 	}
-
-	// Si se ha leído correctamente o no queda nada más, terminamos
 	if (bytes_read < 0 || (!bytes_read && (!saved || !*saved)))
 	{
 		free(saved);
 		saved = NULL;
 		return (NULL);
 	}
-
-	// Extraemos la línea leída
 	return (extract_line(&saved));
 }
