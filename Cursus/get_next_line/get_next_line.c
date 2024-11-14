@@ -17,7 +17,6 @@
 #endif
 
 #define MAX_SAFE_BUFFER 8376793
-#define INTERNAL_READ_SIZE 1024
 
 static unsigned long long	adjust_buffer_size(unsigned long long buffer_size)
 {
@@ -52,24 +51,17 @@ static char	*extract_line(char **saved)
 	char	*line;
 	char	*newline_pos;
 	char	*temp;
-	int		line_len;
 
 	newline_pos = ft_strchr(*saved, '\n');
 	if (newline_pos)
 	{
-		line_len = newline_pos - *saved + 1;
-		line = (char *)malloc(line_len + 1);
+		line = (char *)malloc(newline_pos - *saved + 2);
 		if (!line)
 			return (NULL);
-		ft_strlcpy(line, *saved, line_len + 1);
+		ft_strlcpy(line, *saved, newline_pos - *saved + 2);
 		temp = ft_strdup(newline_pos + 1);
 		free(*saved);
 		*saved = temp;
-		if (**saved == '\0')
-		{
-			free(*saved);
-			*saved = NULL;
-		}
 	}
 	else
 	{
@@ -80,38 +72,42 @@ static char	*extract_line(char **saved)
 	return (line);
 }
 
-static int	read_into_saved(int fd, char **saved)
+static int	read_line(int fd, char **saved, int buffer_size)
 {
-	char	internal_buffer[INTERNAL_READ_SIZE + 1];
+	char	*buffer;
 	int		bytes_read;
 	char	*temp;
 
-	bytes_read = read(fd, internal_buffer, INTERNAL_READ_SIZE);
+	buffer = (char *)malloc(buffer_size + 1);
+	if (!buffer)
+		return (-1);
+	bytes_read = read(fd, buffer, buffer_size);
 	if (bytes_read > 0)
 	{
-		internal_buffer[bytes_read] = '\0';
+		buffer[bytes_read] = '\0';
 		if (!*saved)
 			*saved = ft_strdup("");
-		temp = ft_strjoin(*saved, internal_buffer);
+		temp = ft_strjoin(*saved, buffer);
 		free(*saved);
 		*saved = temp;
 	}
+	free(buffer);
 	return (bytes_read);
 }
 
 char	*get_next_line(int fd)
 {
-	static char			*saved;
-	int					bytes_read;
-	unsigned long long	buffer_size;
+	static char	*saved;
+	int			bytes_read;
+	int			buffer_size;
 
 	buffer_size = adjust_buffer_size(BUFFER_SIZE);
 	if (fd < 0 || buffer_size <= 0)
 		return (NULL);
-	bytes_read = read_into_saved(fd, &saved);
+	bytes_read = read_line(fd, &saved, buffer_size);
 	while (bytes_read > 0 && !ft_strchr(saved, '\n'))
 	{
-		bytes_read = read_into_saved(fd, &saved);
+		bytes_read = read_line(fd, &saved, buffer_size);
 	}
 	if (bytes_read < 0 || (!bytes_read && (!saved || !*saved)))
 	{
