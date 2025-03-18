@@ -1,0 +1,76 @@
+# Push_swap Mindmap
+
+## Introducción
+- Ordenar números en un stack usando un conjunto limitado de instrucciones.
+- Optimizar el número de operaciones.
+- Implementación en C.
+
+## Objetivos
+- Aprender sobre algoritmos de ordenamiento.
+- Optimizar la complejidad algorítmica.
+- Manejo eficiente de memoria.
+
+## Instrucciones Generales
+- Código en C siguiendo las normas del proyecto.
+- Evitar errores como segfault, memory leaks, etc.
+- Uso de Makefile con reglas estándar (NAME, all, clean, fclean, re).
+
+## Parte Obligatoria
+### Reglas
+- Dos stacks: `a` (con números iniciales), `b` (vacío).
+- Objetivo: ordenar `a` en orden ascendente.
+- Operaciones disponibles:
+  - **Swap:** `sa`, `sb`, `ss`
+  - **Push:** `pa`, `pb`
+  - **Rotate:** `ra`, `rb`, `rr`
+  - **Reverse Rotate:** `rra`, `rrb`, `rrr`
+
+### Implementación del Programa `push_swap`
+1. [Leer y validar los argumentos](https://parzibyte.me/blog/2019/05/07/leer-argumentos-linea-de-comandos-en-c/).
+2. [Manejo de estructuras de datos (stacks)](https://www.programarya.com/Cursos/C/Estructuras-de-datos-Pilas).
+3. [Implementar operaciones disponibles](https://www.aprenderaprogramar.com/).
+4. [Implementar algoritmo de ordenamiento óptimo](https://latincoder.com/ordenamiento-eficiente-en-c/).
+5. [Optimizar el número de operaciones](https://elladodelmal.com/2019/10/22/optimizacion-de-codigo-en-c/).
+
+### Algoritmo más eficiente para `push_swap`
+- **Para ≤ 5 números** → Algoritmo de Inserción con swaps y rotates mínimos.
+- **Para ≤ 100 números** → QuickSort modificado con particionado eficiente.
+- **Para 500+ números** → Radix Sort basado en bits, optimizando `push` y `rotate`.
+- **El "Algoritmo del Turco"** → Uso de chunking (división en grupos) y reubicación eficiente entre `a` y `b`.
+
+### Pruebas de Rendimiento
+- 100 números en < 700 operaciones.
+- 500 números en < 5500 operaciones.
+
+## Parte Bonus
+### Checker
+- [Leer stack `a` como argumento](https://www.aprenderaprogramar.com/).
+- Leer y ejecutar una lista de instrucciones.
+- [Comprobar si `a` está ordenado y `b` vacío (`OK` o `KO`)](https://parzibyte.me/blog/2020/03/07/ordenar-numeros-en-c/).
+- [Manejo de errores](https://parzibyte.me/blog/2019/02/08/malloc-free-liberar-memoria-c/).
+
+## Conocimientos Necesarios
+### Algoritmos de Ordenamiento
+- [Bubble Sort, Insertion Sort, QuickSort, MergeSort](https://www.programacionfacil.org/c/algoritmos_de_ordenacion.html).
+- [Análisis de complejidad](https://latincoder.com/analisis-de-algoritmos/).
+
+### Estructuras de Datos
+- [Stacks y listas enlazadas](https://www.programarya.com/Cursos/C/Arreglos-y-Estructuras).
+- [Operaciones eficientes sobre estructuras dinámicas](https://www.tutorialspoint.com/data_structures_algorithms/stack_algorithm.htm).
+
+### Manejo de Memoria en C
+- [`malloc`, `free`, evitar memory leaks](https://parzibyte.me/blog/2019/02/08/malloc-free-liberar-memoria-c/).
+- [Uso de `valgrind` para detectar errores de memoria](https://valgrind.org/docs/manual/quick-start.html).
+
+### Optimización
+- [Minimizar el número de operaciones](https://latincoder.com/como-optimizar-tu-codigo-en-c/).
+- [Análisis de casos especiales y heurísticas](https://latincoder.com/analisis-de-algoritmos/).
+
+### Makefile y Buenas Prácticas en C
+- [Uso de `Makefile` con flags `-Wall -Werror -Wextra`](https://www.tutorialspoint.com/makefile/index.htm).
+- [Separación de código en módulos (`.h`, `.c`)](https://www.aprenderaprogramar.com/).
+- [Depuración y testing automatizado](https://latincoder.com/debugging-en-c/).
+
+---
+
+Este mapa mental proporciona una estructura clara para abordar el desarrollo del proyecto `push_swap`. ¡Buena suerte!
