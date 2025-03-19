@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 18:04:56 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/18 18:04:56 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:23:14 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,26 @@ int	*convert_and_validate_args(int argc, char **argv)
 	return (numbers);
 }
 
-void	print_numbers(int *numbers, int size)
+int	*process_arguments(int argc, char **argv)
 {
-	int	i;
+	int	*numbers;
 
-	i = 0;
-	ft_printf("Números válidos ingresados:\n");
-	while (i < size)
+	if (argc < 2)
 	{
-		ft_printf("%d ", numbers[i]);
-		i++;
+		print_error("Debes proporcionar números.");
+		return (NULL);
 	}
-	ft_printf("\n");
+	numbers = convert_and_validate_args(argc, argv);
+	if (!numbers)
+	{
+		print_error("Un argumento no es un número válido.");
+		return (NULL);
+	}
+	if (has_duplicates(numbers, argc - 1))
+	{
+		print_error("Hay números duplicados.");
+		free(numbers);
+		return (NULL);
+	}
+	return (numbers);
 }

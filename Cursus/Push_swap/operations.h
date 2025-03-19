@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   operatinons.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 18:05:57 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/19 18:15:52 by jdacal-a         ###   ########.fr       */
+/*   Created: 2025/03/19 18:06:27 by jdacal-a          #+#    #+#             */
+/*   Updated: 2025/03/19 18:06:37 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
-int		is_number(char *str);
-int		has_duplicates(int *arr, int size);
-void	print_error(char *message);
-int		*convert_and_validate_args(int argc, char **argv);
-void	print_numbers(int *numbers, int size);
-int		*process_arguments(int argc, char **argv);
+# include "stack.h"
+
+// Swap
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+
+// Push
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+
+// Rotate
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+
+// Reverse Rotate
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 #endif
