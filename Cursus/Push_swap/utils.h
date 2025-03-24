@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 18:05:57 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/19 18:15:52 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:59:13 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		is_number(char *str);
 int		has_duplicates(int *arr, int size);
-void	print_error(char *message);
+void	print_error();
 int		*convert_and_validate_args(int argc, char **argv);
 void	print_numbers(int *numbers, int size);
 int		*process_arguments(int argc, char **argv);

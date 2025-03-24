@@ -17,6 +17,7 @@ SRC = main.c \
 	push_operations.c\
 	rotate_operations.c\
 	reverse_rotate_operations.c\
+	quick_sort.c\
 	stack_utils.c
 
 # Archivos objeto (se generan en la misma carpeta que los archivos fuente de push_swap)

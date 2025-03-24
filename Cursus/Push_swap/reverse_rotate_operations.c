@@ -6,21 +6,23 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:09:33 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/20 16:19:06 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:54:23 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 #include "ft_printf/ft_printf.h"
 
-void	reverse_rotate(t_stack *stack)
+void reverse_rotate(t_stack *stack)
 {
-	t_node	*last;
-	t_node	*second_last;
+	t_node *last;
+	t_node *second_last;
 
 	if (!stack || stack->size < 2)
 		return;
 	second_last = stack->top;
+	if (!second_last->next)
+		return;
 	while (second_last->next && second_last->next->next)
 		second_last = second_last->next;
 	last = second_last->next;

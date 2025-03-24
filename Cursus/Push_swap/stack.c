@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:08:50 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/19 18:22:42 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:56:55 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
 
-// Inicializa un stack vacío
 t_stack	*init_stack(void)
 {
 	t_stack	*stack;
@@ -27,7 +26,6 @@ t_stack	*init_stack(void)
 	return (stack);
 }
 
-// Agrega un valor al stack
 void	push(t_stack *stack, int value)
 {
 	t_node	*new_node;
@@ -41,7 +39,6 @@ void	push(t_stack *stack, int value)
 	stack->size++;
 }
 
-// Extrae un valor del stack
 int	pop(t_stack *stack)
 {
 	t_node	*temp;
@@ -57,7 +54,6 @@ int	pop(t_stack *stack)
 	return (value);
 }
 
-// Libera la memoria del stack
 void	free_stack(t_stack *stack)
 {
 	t_node	*temp;
@@ -71,7 +67,6 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-// Inicializa y llena el stack 'a' con los números validados
 t_stack	*init_stack_a(int *numbers, int size)
 {
 	t_stack	*a;

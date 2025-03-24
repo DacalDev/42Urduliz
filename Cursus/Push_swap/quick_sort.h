@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_operations.c                                  :+:      :+:    :+:   */
+/*   quick_sort.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 18:11:10 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 15:51:09 by jdacal-a         ###   ########.fr       */
+/*   Created: 2025/03/24 17:08:07 by jdacal-a          #+#    #+#             */
+/*   Updated: 2025/03/24 17:08:10 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
-#include "ft_printf/ft_printf.h"
+#ifndef QUICK_SORT_H
+# define QUICK_SORT_H
 
-void	pa(t_stack *a, t_stack *b)
-{
-	if (!b || b->size == 0)
-		return ;
-	push(a, pop(b));
-	ft_printf("pa\n");
-}
+# include "stack.h"
 
-void pb(t_stack *a, t_stack *b)
-{
-	if (!a || a->size == 0)
-		return;
-	push(b, pop(a));
-	ft_printf("pb\n");
-}
+int get_pivot(t_stack *stack);
+void partition_stack(t_stack *a, t_stack *b, int pivot);
+void quicksort_stack(t_stack **a, t_stack **b, int size);
 
+#endif

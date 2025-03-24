@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 18:04:56 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/19 18:23:14 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/24 16:32:44 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,28 +51,36 @@ int	has_duplicates(int *arr, int size)
 	return (0);
 }
 
-void	print_error(char *message)
+void print_error(void)
 {
-	ft_printf("Error: %s\n", message);
+	ft_printf("Error\n");
+	exit(1);
 }
 
 int	*convert_and_validate_args(int argc, char **argv)
 {
-	int	*numbers;
-	int	i;
+	int		*numbers;
+	int		i;
+	long	num;
 
-	i = 1;
 	numbers = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!numbers)
 		return (NULL);
+	i = 1;
 	while (i < argc)
 	{
 		if (!is_number(argv[i]))
 		{
 			free(numbers);
-			return (NULL);
+			print_error();
 		}
-		numbers[i - 1] = ft_atoi(argv[i]);
+		num = ft_atol(argv[i]);
+		if (num < -2147483648 || num > 2147483647)
+		{
+			free(numbers);
+			print_error();
+		}
+		numbers[i - 1] = (int)num;
 		i++;
 	}
 	return (numbers);
@@ -84,18 +92,18 @@ int	*process_arguments(int argc, char **argv)
 
 	if (argc < 2)
 	{
-		print_error("Debes proporcionar números.");
+		print_error();
 		return (NULL);
 	}
 	numbers = convert_and_validate_args(argc, argv);
 	if (!numbers)
 	{
-		print_error("Un argumento no es un número válido.");
+		print_error();
 		return (NULL);
 	}
 	if (has_duplicates(numbers, argc - 1))
 	{
-		print_error("Hay números duplicados.");
+		print_error();
 		free(numbers);
 		return (NULL);
 	}
