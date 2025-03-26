@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:51:23 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 16:31:29 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:19:53 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_qsort(int arr[], int low, int high);
 
 #endif

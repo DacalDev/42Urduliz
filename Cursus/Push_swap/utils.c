@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 18:04:56 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 16:32:44 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:41:06 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	has_duplicates(int *arr, int size)
 	return (0);
 }
 
-void print_error(void)
+void	print_error(void)
 {
 	ft_printf("Error\n");
 	exit(1);

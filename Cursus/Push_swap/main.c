@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 19:48:54 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 17:09:44 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:35:53 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	initialize_stacks(t_stack **a, t_stack **b, int *numbers, int size)
 	*b = init_stack();
 }
 
-void execute_operations(t_stack *a, t_stack *b)
+void	execute_operations(t_stack *a, t_stack *b)
 {
-	pb(a, b);
+	pb(&a, &b);
 	print_stack(a, "a");
 	print_stack(b, "b");
-	pa(a, b);
+	pa(&a, &b);
 	print_stack(a, "a");
 	print_stack(b, "b");
-	ra(a);
+	ra(&a);
 	print_stack(a, "a");
 	print_stack(b, "b");
 	rb(b);
@@ -73,4 +73,3 @@ int	main(int argc, char **argv)
 	free_stack(b);
 	return (0);
 }
-

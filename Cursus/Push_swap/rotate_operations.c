@@ -6,17 +6,17 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:07:45 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 16:02:09 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:43:39 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 #include "ft_printf/ft_printf.h"
 
-void rotate(t_stack *stack)
+void	rotate(t_stack *stack)
 {
-	t_node *first;
-	t_node *last;
+	t_node	*first;
+	t_node	*last;
 
 	if (!stack || stack->size < 2)
 		return ;

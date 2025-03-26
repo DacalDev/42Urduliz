@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:08:09 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/19 18:14:29 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:27:09 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,11 @@ int		pop(t_stack *stack);
 void	free_stack(t_stack *stack);
 void	print_stack(t_stack *stack, char *name);
 t_stack	*init_stack_a(int *numbers, int size);
+int		stack_size(t_stack *stack);
+void	stack_to_array(t_stack *stack, int *array);
+void	pb(t_stack **b, t_stack **a);
+void	ra(t_stack **a);
+int		is_empty(t_stack *stack);
+void	pa(t_stack **a, t_stack **b);
 
 #endif

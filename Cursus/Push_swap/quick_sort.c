@@ -6,87 +6,66 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:52:48 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 17:29:16 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:23:55 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "quick_sort.h"
+#include "libft.h"
+#include "stack.h"
 
 int get_pivot(t_stack *stack)
 {
-	int *values;
-	t_node *current;
-	int size, i, pivot;
+	int	*values;
+	int	size;
+	int	pivot;
 
-	size = stack->size;
-	values = (int *)malloc(sizeof(int) * size);
+	size = stack_size(stack);
+	values = malloc(sizeof(int) * size);
 	if (!values)
-		return (0);
-	current = stack->top;
-	i = 0;
-	while (current)
-	{
-		values[i++] = current->value;
-		current = current->next;
-	}
-	ft_qsort(values, size); // Implementa un quicksort simple aquí
-	pivot = values[size / 2]; // Mediana
+		return (-1);
+	stack_to_array(stack, values);
+	ft_qsort(values, 0, size - 1);
+	pivot = values[size / 2];
 	free(values);
-	return (pivot);
+	return pivot;
 }
 
-static void push_greater_to_b(t_stack *a, t_stack *b, int pivot, int *left_size, int *pushed)
+void	push_greater_to_b(t_stack *a, t_stack *b, int pivot)
 {
-	if (a->top->value < pivot)
+	int	i;
+	int	size;
+
+	size = stack_size(a);
+	for (i = 0; i < size; i++)
 	{
-		pb(b, a);
-		(*pushed)++;
-	}
-	else
-	{
-		ra(a);
-		(*left_size)++;
+		if (a->top->value > pivot)
+			pb(b, a);
+		else
+			ra(a);
 	}
 }
 
-static void restore_stack(t_stack *a, t_stack *b, int pushed)
+void	restore_stack(t_stack *a, t_stack *b)
 {
-	while (pushed > 0)
-	{
+	while (!is_empty(b))
 		pa(a, b);
-		pushed--;
-	}
 }
 
-int partition_stack(t_stack *a, t_stack *b, int pivot)
+void	partition_stack(t_stack *a, t_stack *b, int pivot)
 {
-	int left_size;
-	int original_size;
-	int pushed;
-
-	left_size = 0;
-	pushed = 0;
-	original_size = a->size;
-	while (original_size > 0)
-	{
-		push_greater_to_b(a, b, pivot, &left_size, &pushed);
-		original_size--;
-	}
-	restore_stack(a, b, pushed);
-	return (left_size);
+	push_greater_to_b(a, b, pivot);
+	restore_stack(a, b);
 }
 
-void quicksort_stack(t_stack *a, t_stack *b, int size)
+void	quicksort_stack(t_stack **a, t_stack **b, int size)
 {
+	int	pivot;
+
 	if (size <= 1)
 		return ;
-	int pivot = get_pivot(a);
-	int left_size = partition_stack(a, b, pivot); // Devuelve el tamaño de la parte izquierda
-	// Ordenar la parte izquierda
-	quicksort_stack(a, b, left_size);
-	// Ordenar la parte derecha (moviendo elementos de B a A y aplicando QuickSort)
-	int right_size = size - left_size;
-	while (right_size-- > 0)
-		pa(a, b);
-	quicksort_stack(a, b, size - left_size);
+	pivot = get_pivot(*a);
+	partition_stack(*a, *b, pivot);
+	quicksort_stack(a, b, size / 2);
+	quicksort_stack(a, b, size - (size / 2));
 }

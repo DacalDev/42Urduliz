@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:30:25 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/24 16:30:34 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:39:16 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ long	ft_atol(const char *str)
 	}
 	return (result * sign);
 }
-
