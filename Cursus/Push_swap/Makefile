@@ -7,25 +7,23 @@ CFLAGS = -Wall -Werror -Wextra
 
 # Directorios
 LIBFT_DIR = ./libft
-FT_PRINTF_DIR = ./libft/ft_printf
 
 # Archivos fuente de Push_swap (están directamente en la carpeta push_swap)
-SRC = main.c \
-	utils.c \
+SRC = main.c\
+	push_operations.c\
+	quick_sort.c\
+	reverse_rotate_operations.c\
+	rotate_operations.c\
+	stack_utils.c\
 	stack.c\
 	swap_operations.c\
-	push_operations.c\
-	rotate_operations.c\
-	reverse_rotate_operations.c\
-	quick_sort.c\
-	stack_utils.c
+	utils.c\
 
 # Archivos objeto (se generan en la misma carpeta que los archivos fuente de push_swap)
 OBJ = $(SRC:%.c=%.o)
 
 # Archivos de las librerías
 LIBFT = $(LIBFT_DIR)/libft.a
-FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 # Regla principal: compilar Push_swap, y compilar las librerías si es necesario
 all: $(NAME)
@@ -34,10 +32,6 @@ all: $(NAME)
 $(LIBFT):
 	@echo "Compilando libft..."
 	make -C $(LIBFT_DIR)
-
-$(FT_PRINTF):
-	@echo "Compilando ft_printf..."
-	make -C $(FT_PRINTF_DIR)
 
 # Regla para compilar Push_swap
 $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
@@ -54,7 +48,6 @@ clean:
 	@echo "Limpiando archivos objeto..."
 	rm -f $(OBJ)
 	make clean -C $(LIBFT_DIR)
-	make clean -C $(FT_PRINTF_DIR)
 	@echo "Archivos objeto eliminados."
 
 # Regla para limpiar completamente: eliminar archivos objeto y librerías
@@ -62,7 +55,6 @@ fclean: clean
 	@echo "Limpiando push_swap y librerías..."
 	rm -f $(NAME)
 	make fclean -C $(LIBFT_DIR)
-	make fclean -C $(FT_PRINTF_DIR)
 	@echo "Librería $(NAME) y archivos objeto eliminados."
 
 # Recompilar todo desde cero

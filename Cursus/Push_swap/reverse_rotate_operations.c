@@ -6,12 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:09:33 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/26 15:46:18 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:06:33 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
-#include "ft_printf/ft_printf.h"
+#include "push_swap.h"
 
 void	reverse_rotate(t_stack *stack)
 {

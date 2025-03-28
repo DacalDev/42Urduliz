@@ -6,13 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:08:50 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/26 15:42:35 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:06:47 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
+#include "push_swap.h"
 
 t_stack	*init_stack(void)
 {

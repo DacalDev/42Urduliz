@@ -6,14 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 18:04:56 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/26 15:41:06 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:06:59 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
-#include <stdlib.h>
+#include "push_swap.h"
 
 int	is_number(char *str)
 {

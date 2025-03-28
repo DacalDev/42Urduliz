@@ -6,13 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:52:48 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/26 16:23:55 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:06:27 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "quick_sort.h"
-#include "libft.h"
-#include "stack.h"
+#include "push_swap.h"
 
 int get_pivot(t_stack *stack)
 {
@@ -40,7 +38,7 @@ void	push_greater_to_b(t_stack *a, t_stack *b, int pivot)
 	for (i = 0; i < size; i++)
 	{
 		if (a->top->value > pivot)
-			pb(b, a);
+			pb(&b, &a);
 		else
 			ra(a);
 	}
@@ -49,7 +47,7 @@ void	push_greater_to_b(t_stack *a, t_stack *b, int pivot)
 void	restore_stack(t_stack *a, t_stack *b)
 {
 	while (!is_empty(b))
-		pa(a, b);
+		pa(&a, &b);
 }
 
 void	partition_stack(t_stack *a, t_stack *b, int pivot)

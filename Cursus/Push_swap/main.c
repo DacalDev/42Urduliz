@@ -6,16 +6,11 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 19:48:54 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/26 16:35:53 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/03/28 18:06:11 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-#include "stack.h"
-#include "operations.h"
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
-#include "quick_sort.h"
+#include "push_swap.h"
 
 void	initialize_stacks(t_stack **a, t_stack **b, int *numbers, int size)
 {
@@ -33,7 +28,7 @@ void	execute_operations(t_stack *a, t_stack *b)
 	pa(&a, &b);
 	print_stack(a, "a");
 	print_stack(b, "b");
-	ra(&a);
+	ra(a);
 	print_stack(a, "a");
 	print_stack(b, "b");
 	rb(b);
