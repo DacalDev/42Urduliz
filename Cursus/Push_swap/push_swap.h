@@ -6,15 +6,15 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:58:04 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/28 18:04:56 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/04/28 12:02:23 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
+# include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 /* ================== STACK ================== */
 typedef struct s_node
