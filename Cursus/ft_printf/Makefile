@@ -20,8 +20,6 @@ OBJ = $(SRC:.c=.o)
 # Comando para crear la librería estática
 AR = ar rcs
 
-# Reglas
-
 # Regla principal: compilar la librería
 all: $(NAME)
 
