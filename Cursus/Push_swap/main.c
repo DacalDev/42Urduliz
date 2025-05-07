@@ -6,60 +6,35 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 19:48:54 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/28 18:06:11 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:18:06 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initialize_stacks(t_stack **a, t_stack **b, int *numbers, int size)
+static int	init_all(t_stack **a, t_stack **b, int argc, char **argv)
 {
-	*a = init_stack_a(numbers, size);
-	if (!(*a))
-		return ;
-	*b = init_stack();
-}
+	int	*numbers;
 
-void	execute_operations(t_stack *a, t_stack *b)
-{
-	pb(&a, &b);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	pa(&a, &b);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	ra(a);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	rb(b);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	rr(a, b);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	rra(a);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	rrb(b);
-	print_stack(a, "a");
-	print_stack(b, "b");
-	rrr(a, b);
-	print_stack(a, "a");
-	print_stack(b, "b");
+	numbers = process_arguments(argc, argv);
+	if (!numbers)
+		return (0);
+	*a = init_stack_a(numbers, argc - 1);
+	*b = init_stack();
+	free(numbers);
+	if (!(*a) || !(*b))
+		return (0);
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		*numbers;
 
-	numbers = process_arguments(argc, argv);
-	if (!numbers)
+	if (argc < 2)
 		return (1);
-	initialize_stacks(&a, &b, numbers, argc - 1);
-	free(numbers);
-	if (!a || !b)
+	if (!init_all(&a, &b, argc, argv))
 		return (1);
 	print_stack(a, "a");
 	quicksort_stack(&a, &b, a->size);

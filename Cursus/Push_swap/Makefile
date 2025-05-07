@@ -11,9 +11,11 @@ LIBFT_DIR = ./libft
 # Archivos fuente de Push_swap (están directamente en la carpeta push_swap)
 SRC = main.c\
 	push_operations.c\
+	quick_sort_utils.c\
 	quick_sort.c\
 	reverse_rotate_operations.c\
 	rotate_operations.c\
+	sort_stack.c\
 	stack_utils.c\
 	stack.c\
 	swap_operations.c\

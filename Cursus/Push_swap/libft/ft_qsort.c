@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 16:14:45 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/26 16:18:59 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:55:34 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ static int	partition(int arr[], int low, int high)
 }
 
 void	ft_qsort(int arr[], int low, int high)
+{
+	if (high - low + 1 <= 15)
+		ft_insertion_sort(arr + low, high - low + 1);
+	else
+	{
+		ft_partition_and_sort(arr, low, high);
+	}
+}
+
+static void	ft_partition_and_sort(int arr[], int low, int high)
 {
 	int	pi;
 

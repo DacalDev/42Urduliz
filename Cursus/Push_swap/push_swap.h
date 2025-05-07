@@ -6,7 +6,7 @@
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:58:04 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/04/28 12:02:23 by jdacal-a         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:42:57 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,10 @@ void	rrr(t_stack *a, t_stack *b);
 
 /* ================== QUICK SORT ================== */
 int		get_pivot(t_stack *stack);
-void	partition_stack(t_stack *a, t_stack *b, int pivot);
+void	partition_stack(t_stack *a, t_stack *b, int pivot, int size);
 void	quicksort_stack(t_stack **a, t_stack **b, int size);
+void	push_or_rotate(t_stack **a, t_stack **b, int pivot, int *rotations);
+void	restore_stack(t_stack **a, t_stack **b);
 
 /* ================== UTILS ================== */
 int		is_number(char *str);
