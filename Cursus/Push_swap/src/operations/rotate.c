@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_operations.c                                :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 16:07:45 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/28 18:06:38 by jdacal-a         ###   ########.fr       */
+/*   Created: 2025/05/14 10:52:55 by jdacal-a          #+#    #+#             */
+/*   Updated: 2025/05/14 10:52:55 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
-void	rotate(t_stack *stack)
+void	rotate_stack(t_node **stack)
 {
 	t_node	*first;
 	t_node	*last;
 
-	if (!stack || stack->size < 2)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	first = stack->top;
-	stack->top = first->next;
-	last = stack->top;
-	while (last && last->next)
+	first = *stack;
+	*stack = first->next;
+	last = *stack;
+	while (last->next)
 		last = last->next;
 	last->next = first;
 	first->next = NULL;
 }
 
-void	ra(t_stack *a)
+void	ra(t_node **a)
 {
-	rotate(a);
+	rotate_stack(a);
 	ft_printf("ra\n");
 }
 
-void	rb(t_stack *b)
+void	rb(t_node **b)
 {
-	rotate(b);
+	rotate_stack(b);
 	ft_printf("rb\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_node **a, t_node **b)
 {
-	rotate(a);
-	rotate(b);
+	rotate_stack(a);
+	rotate_stack(b);
 	ft_printf("rr\n");
 }

@@ -10,7 +10,6 @@ FT_PRINTF_DIR = ft_printf
 
 # Archivos fuente de Libft
 SRC = ft_atoi.c \
-	ft_atol.c\
 	ft_bzero.c \
 	ft_calloc.c \
 	ft_isalnum.c \
@@ -28,7 +27,7 @@ SRC = ft_atoi.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
-	ft_qsort.c\
+	ft_qsort.c \
 	ft_split.c \
 	ft_strchr.c \
 	ft_strdup.c \

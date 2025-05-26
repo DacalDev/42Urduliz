@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_operations.c                                  :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 18:06:55 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/03/28 18:06:51 by jdacal-a         ###   ########.fr       */
+/*   Created: 2025/05/14 10:53:32 by jdacal-a          #+#    #+#             */
+/*   Updated: 2025/05/14 10:53:32 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
-void	swap(t_stack *stack)
+void	swap_stack(t_node **stack)
 {
 	t_node	*first;
 	t_node	*second;
 
-	if (!stack || stack->size < 2)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	first = stack->top;
-	second = first->next;
+	first = *stack;
+	second = (*stack)->next;
 	first->next = second->next;
 	second->next = first;
-	stack->top = second;
+	*stack = second;
 }
 
-void	sa(t_stack *a)
+void	sa(t_node **a)
 {
-	swap(a);
+	swap_stack(a);
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack *b)
+void	sb(t_node **b)
 {
-	swap(b);
+	swap_stack(b);
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_node **a, t_node **b)
 {
-	swap(a);
-	swap(b);
+	swap_stack(a);
+	swap_stack(b);
 	ft_printf("ss\n");
 }

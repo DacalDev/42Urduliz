@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 static void	swap(int *a, int *b)
 {
@@ -43,13 +43,24 @@ static int	partition(int arr[], int low, int high)
 	return (i + 1);
 }
 
-void	ft_qsort(int arr[], int low, int high)
+static void	ft_insertion_sort(int *arr, int size)
 {
-	if (high - low + 1 <= 15)
-		ft_insertion_sort(arr + low, high - low + 1);
-	else
+	int	i;
+	int	j;
+	int	key;
+
+	i = 1;
+	while (i < size)
 	{
-		ft_partition_and_sort(arr, low, high);
+		key = arr[i];
+		j = i - 1;
+		while (j >= 0 && arr[j] > key)
+		{
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+		i++;
 	}
 }
 
@@ -63,4 +74,12 @@ static void	ft_partition_and_sort(int arr[], int low, int high)
 		ft_qsort(arr, low, pi - 1);
 		ft_qsort(arr, pi + 1, high);
 	}
+}
+
+void	ft_qsort(int arr[], int low, int high)
+{
+	if (high - low + 1 <= 15)
+		ft_insertion_sort(arr + low, high - low + 1);
+	else
+		ft_partition_and_sort(arr, low, high);
 }

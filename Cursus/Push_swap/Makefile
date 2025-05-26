@@ -3,63 +3,66 @@ NAME = push_swap
 
 # Compilador y flags
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
-# Directorios
-LIBFT_DIR = ./libft
+# Directorio de la librería
+LIBFT_DIR = libft
 
-# Archivos fuente de Push_swap (están directamente en la carpeta push_swap)
-SRC = main.c\
-	push_operations.c\
-	quick_sort_utils.c\
-	quick_sort.c\
-	reverse_rotate_operations.c\
-	rotate_operations.c\
-	sort_stack.c\
-	stack_utils.c\
-	stack.c\
-	swap_operations.c\
-	utils.c\
+# Archivos fuente de Push_swap
+SRC = src/operations/push.c \
+	src/operations/reverse_rotate.c \
+	src/operations/rotate.c \
+	src/operations/swap.c \
+	src/push_swap/execute_rotations.c \
+	src/push_swap/memory.c \
+	src/push_swap/parser.c \
+	src/push_swap/push_swap.c \
+	src/push_swap/sort.c \
+	src/push_swap/sort_turk.c \
+	src/push_swap/sort_utils.c \
+	src/push_swap/stack_index.c \
+	src/push_swap/stack_utils.c \
+	src/push_swap/targets.c \
+	src/push_swap/turk_helpers.c \
+	src/push_swap/turk_utils.c
 
-# Archivos objeto (se generan en la misma carpeta que los archivos fuente de push_swap)
+# Archivos objeto
 OBJ = $(SRC:%.c=%.o)
 
-# Archivos de las librerías
+# Librería estática
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# Regla principal: compilar Push_swap, y compilar las librerías si es necesario
-all: $(NAME)
+# Regla principal
+all: $(LIBFT) $(NAME)
 
-# Regla para compilar las librerías si no están compiladas
+# Compilar la librería si no existe
 $(LIBFT):
 	@echo "Compilando libft..."
-	make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
-# Regla para compilar Push_swap
-$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
+# Compilar el ejecutable
+$(NAME): $(OBJ)
 	@echo "Compilando push_swap..."
-	$(CC) $(OBJ) -L$(LIBFT_DIR) -lft -L$(FT_PRINTF_DIR) -lftprintf $(CFLAGS) -no-pie -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
-# Regla para compilar los archivos fuente de Push_swap
-%.o: %.c $(LIBFT) $(FT_PRINTF)
+# Compilar objetos individuales
+%.o: %.c
 	@echo "Compilando archivo objeto $@ desde $<..."
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -Iinc -I$(LIBFT_DIR) -c $< -o $@
 
-# Regla para limpiar los archivos objeto
+# Limpiar archivos objeto
 clean:
 	@echo "Limpiando archivos objeto..."
 	rm -f $(OBJ)
-	make clean -C $(LIBFT_DIR)
-	@echo "Archivos objeto eliminados."
+	@make clean -C $(LIBFT_DIR)
 
-# Regla para limpiar completamente: eliminar archivos objeto y librerías
+# Limpiar todo (objetos + ejecutable + librería)
 fclean: clean
 	@echo "Limpiando push_swap y librerías..."
 	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
-	@echo "Librería $(NAME) y archivos objeto eliminados."
+	@make fclean -C $(LIBFT_DIR)
 
-# Recompilar todo desde cero
+# Recompilar desde cero
 re: fclean all
 
 .PHONY: all clean fclean re

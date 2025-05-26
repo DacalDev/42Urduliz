@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort_utils.c                                 :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 10:40:01 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/04/29 10:40:07 by jdacal-a         ###   ########.fr       */
+/*   Created: 2025/05/14 10:53:08 by jdacal-a          #+#    #+#             */
+/*   Updated: 2025/05/14 10:53:08 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
-int	get_pivot(t_stack *stack)
+void	push_stack(t_node **src, t_node **dest)
 {
-	int	*values;
-	int	size;
-	int	pivot;
+	t_node	*temp;
 
-	size = stack_size(stack);
-	values = malloc(sizeof(int) * size);
-	if (!values)
-		return (-1);
-	stack_to_array(stack, values);
-	ft_qsort(values, 0, size - 1);
-	pivot = values[size / 2];
-	free(values);
-	return (pivot);
+	if (!src || !*src)
+		return ;
+	temp = *src;
+	*src = (*src)->next;
+	temp->next = *dest;
+	*dest = temp;
 }
 
-void	restore_stack(t_stack **a, t_stack **b)
+void	pa(t_node **a, t_node **b)
 {
-	while (!is_empty(*b))
-		pa(a, b);
+	push_stack(b, a);
+	ft_printf("pa\n");
+}
+
+void	pb(t_node **a, t_node **b)
+{
+	push_stack(a, b);
+	ft_printf("pb\n");
 }

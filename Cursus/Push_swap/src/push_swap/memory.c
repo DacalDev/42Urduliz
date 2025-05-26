@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdacal-a <jdacal-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 09:56:40 by jdacal-a          #+#    #+#             */
-/*   Updated: 2025/04/29 09:57:42 by jdacal-a         ###   ########.fr       */
+/*   Created: 2025/05/12 11:34:26 by jdacal-a          #+#    #+#             */
+/*   Updated: 2025/05/12 11:34:26 by jdacal-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
-void	sort_stack(t_stack **a, t_stack **b)
+t_node	*create_node(int value)
 {
-	int	size;
+	t_node	*new_node;
 
-	size = stack_size(*a);
-	if (size <= 1 || is_sorted(*a))
-		return ;
-	quicksort_stack(a, b, size);
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+	{
+		ft_printf("Error: Memory allocation failed for new node.\n");
+		return (NULL);
+	}
+	new_node->value = value;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+void	free_list(t_node *head)
+{
+	t_node	*temp;
+
+	while (head)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
 }
